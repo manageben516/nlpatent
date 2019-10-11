@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery Markdown Example</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+<meta name="viewport" content="width=device-width">
+<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div id="jquery-script-menu">
+<div class="jquery-script-center">
+<ul>
+<li><a href="http://www.jqueryscript.net/text/Create-A-Simple-Markdown-Editor-with-jQuery-Markdown-Plugin.html">Download This Plugin</a></li>
+<li><a href="http://www.jqueryscript.net/">Back To jQueryScript.Net</a></li>
+</ul>
+<div class="jquery-script-ads"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-2783044520727903";
+/* jQuery_demo */
+google_ad_slot = "2780937993";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div class="jquery-script-clear"></div>
+</div>
+</div>
+<h1 style="margin: 150px 0 20px 100px;">jQuery Markdown Example</h1>
+<div style="margin-left:100px;">
+<div style="margin:20px 0;">
+<button onClick="$('#demo').mdBold()" class="btn btn-danger">Bold</button>
+<button onClick="$('#demo').mdItalic()" class="btn btn-danger">Italic</button>
+<button onClick="$('#demo').mdHeader({number: 1})" class="btn btn-danger">H1</button>
+<button onClick="$('#demo').mdHeader({number: 2})" class="btn btn-danger">H2</button>
+<button onClick="$('#demo').mdHeader({number: 3})" class="btn btn-danger">H3</button>
+<button onClick="$('#demo').mdHeader({number: 4})" class="btn btn-danger">H4</button>
+<button onClick="$('#demo').mdLink({default_url: prompt('Enter URL please')})" class="btn btn-danger">Link</button>
+<button onClick="$('#demo').mdImage({default_image_url: prompt('Enter URL Please')})" class="btn btn-danger">Image</button>
+<button onClick="$('#demo').mdQuote()" class="btn btn-danger">Quote</button>
+<button onClick="$('#demo').mdCode()" class="btn btn-danger">Code</button>
+<button onClick="$('#demo').mdNumberedList()" class="btn btn-danger">Numbered List</button>
+<button onClick="$('#demo').mdBulletList()" class="btn btn-danger">Bullet List</button>
+</div>
+<textarea rows="8" cols="90" id="demo" class="form-control" style="width:400px;"></textarea>
+</div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src="../jquery-markdown.js"></script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+</html>

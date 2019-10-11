@@ -1,0 +1,873 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118894651-3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-118894651-3');
+    </script>
+
+     <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+     <title>NLPatent</title>
+     <meta name="description" content="">
+     <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='images/apple-touch-icon.png') }}">
+     <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/favicon-32x32.png') }}">
+     <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='images/favicon-16x16.png') }}">
+     <link rel="manifest" href="{{ url_for('static', filename='site.webmanifest') }}">
+     <link rel="mask-icon" href="{{ url_for('static', filename='safari-pinned-tab.svg') }}" color="#5bbad5">
+     <meta name="msapplication-TileColor" content="#2b5797">
+     <meta name="theme-color" content="#ffffff">
+     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700|Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+     <link href="{{ url_for('static', filename='assets/css/bootstrap.css') }}" rel="stylesheet">
+     <link href="{{ url_for('static', filename='assets/css/bootstrap_nlp_theme.css') }}" rel="stylesheet">
+     <script src="{{ url_for('static', filename='assets/js/jquery-1.11.2.min.js') }}"></script>
+     <script src="{{ url_for('static', filename='assets/js/bootstrap.min.js') }}"></script>
+     <script src="{{ url_for('static', filename='assets/js/vivus.min.js') }}"></script>
+     <script src="{{ url_for('static', filename='assets/js/d3.v5.min.js') }}"></script> <!-- script for animation of circuit on home page only -->
+     <script src="{{ url_for('static', filename='assets/js/velocity.min.js') }}"></script>
+     <script src="{{ url_for('static', filename='assets/js/velocity.ui.min.js') }}"></script>
+</head>
+
+<body class="animation_lock">
+     <!-- preloader -->
+     <div class="preloader_holder" id="preloader_holder">
+          <div class="preloader loading">
+               <span class="slice"></span>
+               <span class="slice"></span>
+               <span class="slice"></span>
+               <span class="slice"></span>
+               <span class="slice"></span>
+               <span class="slice"></span>
+          </div>
+     </div>
+     <!-- header -->
+     <div class="container">
+          <div class="row">
+               <div class="col-xs-12 text-xs-center text-md-left"><img src="{{ url_for('static', filename='images/nlp_logo.png') }}" style="margin-top:20px;max-width:50%;"><div class="hidden-md hidden-lg"><br><br></div></div>
+          </div>
+     </div>
+
+     <!-- main hero panel -->
+     <div class="nlp-hero-skew nlp-hero-orange" id="nlp-main-panel">
+          <div id="nlp-main-panel-image" style="width:100%;height:200%;transform:skewY(7.5deg);z-index:-1;position:absolute;top:0;left:0;">
+               <div id="nlp-main-panel-svg" style="position:absolute;width:100%;height:100%;absolute;left:0;top:0;">
+                    <!-- svg -->
+                    <svg version="1.1" id="svg-code" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+      xml:space="preserve" preserveAspectRatio="xMidYMid" viewBox="0 0 1000 608" style="width:100vmax;height:70vmax;max-width:100%;max-height:100%;transform: translate(0%, 0%);top: 100%;left: 100%;" transform-origin="50% 50%">
+                         <style type="text/css">
+                              .st0{fill:none;stroke:#EA8F23;stroke-width:57.5;stroke-linejoin:bevel;stroke-miterlimit:10;}
+                              .st1{fill:none;stroke:#EA8F23;stroke-width:23.0914;stroke-miterlimit:10;}
+                              .st2{fill:none;stroke:#EA8F23;stroke-width:23.0906;stroke-miterlimit:10;}
+                              .st3{fill:#EA8F23;}
+                              .st5{fill:url(#SVGID_2_);}
+                              .st6{fill:#BE762A;}
+                              .bulbglow{fill:url(#SVGID_1_);}
+                              .bulb{fill:#EA8F23;}
+                              .bulb-stroke{fill:none;stroke:#ffffff;stroke-width:46;stroke-linejoin:bevel;stroke-miterlimit:10;}
+                         </style>
+                         <g id="circuit_svg">
+	                         <radialGradient id="SVGID_1_" cx="500" cy="303.2521" r="138.6757" gradientUnits="userSpaceOnUse">
+	                              <stop  offset="0" style="stop-color:#FFCD05"/>
+	                              <stop  offset="1" style="stop-color:#FFCD05;stop-opacity:0"/>
+	                         </radialGradient>
+	                         <circle id="bulbglow" style="opacity:0;" class="bulbglow" cx="500" cy="303.3" r="177.1"/>
+	                         <g>
+	                              <polyline class="st1" points="359.4,275.3 359.4,387.2 429.4,457.2 429.4,977.1   "/>
+	                              <polyline class="st1" points="331.4,415.2 387.4,471.2 387.4,527.2 429.4,569.2   "/>
+	                              <line class="st1" x1="359.4" y1="555.2" x2="429.4" y2="625.1"/>
+	                              <polyline class="st2" points="317.4,261.3 275.4,303.3 275.4,431.5     "/>
+	                              <line class="st1" x1="317.4" y1="977.1" x2="317.4" y2="471.2"/>
+	                              <polyline class="st1" points="401.4,977.1 401.4,653.1 359.4,611.1     "/>
+	                              <polygon class="st3" points="308.7,344.1 326.2,344.1 334.9,359.2 326.2,374.4 308.7,374.4 299.9,359.2     "/>
+	                              <polygon class="st3" points="224.7,286.9 242.2,286.9 250.9,302.1 242.2,317.2 224.7,317.2 216,302.1  "/>
+	                              <polygon class="st3" points="326.9,398.3 343.8,402.8 348.3,419.7 335.9,432.1 319,427.6 314.5,410.7  "/>
+	                              <polygon class="st3" points="226,157.5 242.9,162 247.4,178.9 235.1,191.3 218.2,186.8 213.6,169.9    "/>
+	                              <polygon class="st3" points="266.7,415.2 284.2,415.2 292.9,430.4 284.2,445.5 266.7,445.5 257.9,430.4     "/>
+	                              <polygon class="st3" points="352,535.4 368.9,539.9 373.4,556.8 361,569.2 344.1,564.6 339.6,547.7    "/>
+	                              <polygon class="st3" points="352,591.3 368.9,595.9 373.4,612.8 361,625.1 344.1,620.6 339.6,603.7    "/>
+	                              <polyline class="st1" points="345,-44.4 415,25.6 415,102.2  "/>
+	                              <polyline class="st1" points="366.7,126.2 366.7,42.2 299.6,-24.9      "/>
+	                              <polygon class="st3" points="337.6,-64.2 354.5,-59.7 359,-42.8 346.6,-30.4 329.7,-35 325.2,-51.8    "/>
+	                              <polygon class="st3" points="292.2,-44.7 309.1,-40.2 313.6,-23.3 301.2,-10.9 284.3,-15.4 279.8,-32.3     "/>
+	                              <polyline class="st1" points="291.9,39.8 258.4,6.3 258.4,-69.8 177,-151.2  "/>
+	                              <polygon class="st3" points="299.3,59.6 282.4,55.1 277.9,38.2 290.3,25.8 307.2,30.4 311.7,47.3      "/>
+	                              <polyline class="st1" points="317.4,359.2 317.4,261.3 345.4,233.3 373.4,233.3 429.4,177.3 485.4,177.3 485.4,-72.3 459,-98.7
+	                                   459,-320.4     "/>
+	                              <polygon class="st3" points="350.7,260.1 368.1,260.1 376.9,275.3 368.1,290.4 350.7,290.4 341.9,275.3     "/>
+	                              <polyline class="st1" points="219.5,-49.6 219.5,39.8 289.4,109.8 289.4,177.3    "/>
+	                              <polygon class="st3" points="210.7,-64.7 228.2,-64.7 236.9,-49.6 228.2,-34.4 210.7,-34.4 202,-49.6  "/>
+	                              <polygon class="st3" points="347,178.9 363.9,174.4 376.3,186.8 371.8,203.7 354.9,208.2 342.5,195.8  "/>
+	                              <polygon class="st3" points="308.7,454.9 326.2,454.9 334.9,470 326.2,485.2 308.7,485.2 299.9,470    "/>
+	                              <polygon class="st3" points="224.7,540 242.2,540 250.9,555.2 242.2,570.3 224.7,570.3 216,555.2      "/>
+	                              <polygon class="st3" points="291,206.9 307.9,202.4 320.3,214.8 315.8,231.7 298.9,236.2 286.5,223.8  "/>
+	                              <polygon class="st3" points="350.7,652 368.1,652 376.9,667.1 368.1,682.3 350.7,682.3 341.9,667.1    "/>
+	                              <polyline class="st1" points="317.4,977.1 317.4,625.1 275.4,583.1 275.4,485.2 233.4,443.2 233.4,303.3    "/>
+	                              <line class="st1" x1="359.4" y1="977.1" x2="359.4" y2="667.1"/>
+	                              <polygon class="st3" points="318,54.2 335.5,54.2 344.2,69.4 335.5,84.5 318,84.5 309.2,69.4     "/>
+	                              <line class="st1" x1="326.7" y1="163.1" x2="326.7" y2="69.4"/>
+	                              <polyline class="st1" points="275.4,541.2 191.5,457.2 191.5,261.3 261.4,261.3 303.4,219.3      "/>
+	                              <polygon class="st3" points="221.1,99.3 238,94.8 250.3,107.1 245.8,124 228.9,128.6 216.5,116.2      "/>
+	                              <polyline class="st1" points="233.4,111.7 191.5,153.6 191.5,259.3     "/>
+	                              <polyline class="st1" points="485.4,135.3 415.4,135.3 359.4,191.3     "/>
+	                              <line class="st1" x1="233.4" y1="977.1" x2="233.4" y2="555.2"/>
+	                              <polygon class="st3" points="266.7,624 284.2,624 292.9,639.1 284.2,654.3 266.7,654.3 257.9,639.1    "/>
+	                              <line class="st1" x1="275.4" y1="977.1" x2="275.4" y2="639.1"/>
+	                              <polyline class="st1" points="205.5,261.3 289.4,177.3 315.6,177.3 390.7,102.2 454.6,102.2 454.6,1.1 409.2,-44.3 409.2,-325.5
+	                                   "/>
+	                              <line class="st1" x1="317.4" y1="499.2" x2="387.4" y2="499.2"/>
+	                              <line class="st1" x1="261.4" y1="205.3" x2="233.4" y2="177.3"/>
+	                              <polygon class="st3" points="-133.1,377.4 -116.2,381.9 -111.7,398.8 -124.1,411.2 -141,406.7 -145.5,389.8      "/>
+	                              <line class="st1" x1="-97.7" y1="425.2" x2="-125.7" y2="397.2"/>
+	                              <polygon class="st3" points="-110,286.8 -105.4,269.9 -88.5,265.4 -76.2,277.7 -80.7,294.6 -97.6,299.2     "/>
+	                              <line class="st1" x1="-62.2" y1="251.4" x2="-90.2" y2="279.4"/>
+	                              <polyline class="st1" points="-10.4,275.3 -10.4,387.2 -80.4,457.2 -80.4,977.1   "/>
+	                              <polyline class="st1" points="17.6,415.2 -38.4,471.2 -38.4,527.2 -80.4,569.2    "/>
+	                              <line class="st1" x1="-10.4" y1="555.2" x2="-80.4" y2="625.1"/>
+	                              <line class="st1" x1="-115.4" y1="569.2" x2="-115.4" y2="977.1"/>
+	                              <polyline class="st2" points="31.5,261.3 73.5,303.3 73.5,431.5   "/>
+	                              <line class="st1" x1="31.5" y1="977.1" x2="31.5" y2="471.2"/>
+	                              <polyline class="st1" points="-52.4,977.1 -52.4,653.1 -10.4,611.1     "/>
+	                              <polygon class="st3" points="40.3,344.1 22.8,344.1 14.1,359.2 22.8,374.4 40.3,374.4 49,359.2   "/>
+	                              <polygon class="st3" points="124.3,286.9 106.8,286.9 98,302.1 106.8,317.2 124.3,317.2 133,302.1     "/>
+	                              <polygon class="st3" points="22.1,398.3 5.2,402.8 0.7,419.7 13,432.1 29.9,427.6 34.4,410.7     "/>
+	                              <polygon class="st3" points="122.9,157.5 106,162 101.5,178.9 113.9,191.3 130.8,186.8 135.3,169.9    "/>
+	                              <polygon class="st3" points="82.3,415.2 64.8,415.2 56,430.4 64.8,445.5 82.3,445.5 91,430.4     "/>
+	                              <polygon class="st3" points="-3,535.4 -19.9,539.9 -24.4,556.8 -12.1,569.2 4.8,564.6 9.4,547.7  "/>
+	                              <polygon class="st3" points="-3,591.3 -19.9,595.9 -24.4,612.8 -12.1,625.1 4.8,620.6 9.4,603.7  "/>
+	                              <polyline class="st1" points="3.9,-44.4 -66,25.6 -66,102.2  "/>
+	                              <polyline class="st1" points="-17.7,126.2 -17.7,42.2 49.4,-24.9  "/>
+	                              <polygon class="st3" points="11.4,-64.2 -5.5,-59.7 -10,-42.8 2.3,-30.4 19.2,-35 23.7,-51.8     "/>
+	                              <polygon class="st3" points="56.8,-44.7 39.9,-40.2 35.4,-23.3 47.7,-10.9 64.6,-15.4 69.2,-32.3      "/>
+	                              <polyline class="st1" points="90.5,-325.5 90.5,6.3 57,39.8  "/>
+	                              <polygon class="st3" points="49.6,59.6 66.5,55.1 71,38.2 58.7,25.8 41.8,30.4 37.2,47.3    "/>
+	                              <polyline class="st1" points="372.4,-445.7 372.4,-142.2 310.6,-80.4   "/>
+	                              <polygon class="st3" points="303.1,-60.6 320,-65.1 324.6,-82 312.2,-94.4 295.3,-89.9 290.8,-73      "/>
+	                              <polyline class="st1" points="-110,-98.7 -136.4,-72.3 -136.4,177.3 -80.4,177.3 -24.4,233.3 3.6,233.3 31.5,261.3 31.5,359.2   "/>
+	                              <polygon class="st3" points="-1.7,260.1 -19.2,260.1 -27.9,275.3 -19.2,290.4 -1.7,290.4 7.1,275.3    "/>
+	                              <polyline class="st1" points="129.5,-49.6 129.5,39.8 59.5,109.8 59.5,177.3      "/>
+	                              <polygon class="st3" points="138.3,-64.7 120.8,-64.7 112,-49.6 120.8,-34.4 138.3,-34.4 147,-49.6    "/>
+	                              <polygon class="st3" points="1.9,178.9 -15,174.4 -27.3,186.8 -22.8,203.7 -5.9,208.2 6.5,195.8  "/>
+	                              <polygon class="st3" points="40.3,454.9 22.8,454.9 14.1,470 22.8,485.2 40.3,485.2 49,470  "/>
+	                              <polygon class="st3" points="124.3,540 106.8,540 98,555.2 106.8,570.3 124.3,570.3 133,555.2    "/>
+	                              <polygon class="st3" points="57.9,206.9 41,202.4 28.6,214.8 33.2,231.7 50.1,236.2 62.4,223.8   "/>
+	                              <polygon class="st3" points="-1.7,652 -19.2,652 -27.9,667.1 -19.2,682.3 -1.7,682.3 7.1,667.1   "/>
+	                              <polygon class="st3" points="-106.7,554 -124.1,554 -132.9,569.2 -124.1,584.3 -106.7,584.3 -97.9,569.2    "/>
+	                              <polyline class="st1" points="31.5,977.1 31.5,625.1 73.5,583.1 73.5,485.2 115.5,443.2 115.5,303.3   "/>
+	                              <line class="st1" x1="-10.4" y1="977.1" x2="-10.4" y2="667.1"/>
+	                              <polygon class="st3" points="31,54.2 13.5,54.2 4.7,69.4 13.5,84.5 31,84.5 39.7,69.4  "/>
+	                              <line class="st1" x1="22.2" y1="163.1" x2="22.2" y2="69.4"/>
+	                              <polyline class="st1" points="73.5,541.2 157.5,457.2 157.5,261.3 87.5,261.3 45.5,219.3    "/>
+	                              <polygon class="st3" points="127.9,99.3 111,94.8 98.6,107.1 103.1,124 120,128.6 132.4,116.2    "/>
+	                              <polyline class="st1" points="115.5,111.7 157.5,153.6 157.5,259.3     "/>
+	                              <polyline class="st1" points="-136.4,135.3 -66.4,135.3 -10.4,191.3    "/>
+	                              <polygon class="st3" points="-73.7,345.9 -90.6,341.3 -103,353.7 -98.4,370.6 -81.5,375.1 -69.2,362.8      "/>
+	                              <polyline class="st1" points="-86.1,358.2 -136.4,307.9 -136.4,213.6 -97.9,213.6 -48.2,263.4 -48.2,374.4 -117.3,443.6
+	                                   -117.3,531.8 -145.5,531.8     "/>
+	                              <polygon class="st3" points="327.6,-257.3 310.7,-261.8 306.2,-278.7 318.5,-291.1 335.4,-286.5 340,-269.6      "/>
+	                              <line class="st1" x1="263.8" y1="-333.4" x2="320.2" y2="-277.1"/>
+	                              <polygon class="st3" points="276.1,-195 271.5,-178.1 254.6,-173.6 242.3,-185.9 246.8,-202.8 263.7,-207.4      "/>
+	                              <polygon class="st3" points="268.6,-275.4 273.2,-258.5 260.8,-246.2 243.9,-250.7 239.4,-267.6 251.7,-279.9    "/>
+	                              <line class="st1" x1="228.3" y1="-159.6" x2="256.3" y2="-187.6"/>
+	                              <polyline class="st1" points="252.2,-266.4 302.5,-216.1 302.5,-150.2 271.4,-114.5 214.3,-171.6 214.3,-282.6 283.5,-351.8     "/>
+	                              <polyline class="st1" points="627.6,-445.7 627.6,-142.2 689.4,-80.4   "/>
+	                              <polygon class="st3" points="696.9,-60.6 680,-65.1 675.4,-82 687.8,-94.4 704.7,-89.9 709.2,-73      "/>
+	                              <polygon class="st3" points="672.4,-257.3 689.3,-261.8 693.8,-278.7 681.5,-291.1 664.6,-286.5 660,-269.6      "/>
+	                              <line class="st1" x1="736.2" y1="-333.4" x2="679.8" y2="-277.1"/>
+	                              <polygon class="st3" points="723.9,-195 728.5,-178.1 745.4,-173.6 757.7,-185.9 753.2,-202.8 736.3,-207.4      "/>
+	                              <polygon class="st3" points="731.4,-275.4 726.8,-258.5 739.2,-246.2 756.1,-250.7 760.6,-267.6 748.3,-279.9    "/>
+	                              <line class="st1" x1="771.7" y1="-159.6" x2="743.7" y2="-187.6"/>
+	                              <polyline class="st1" points="747.8,-266.4 697.5,-216.1 697.5,-150.2 728.6,-114.5 785.7,-171.6 785.7,-282.6 716.5,-351.8     "/>
+	                              <polygon class="st3" points="1133.1,377.4 1116.2,381.9 1111.7,398.8 1124.1,411.2 1141,406.7 1145.5,389.8      "/>
+	                              <line class="st1" x1="1097.7" y1="425.2" x2="1125.7" y2="397.2"/>
+	                              <polygon class="st3" points="1110,286.8 1105.4,269.9 1088.5,265.4 1076.2,277.7 1080.7,294.6 1097.6,299.2      "/>
+	                              <line class="st1" x1="1062.2" y1="251.4" x2="1090.2" y2="279.4"/>
+	                              <polygon class="st3" points="1073.7,345.9 1090.6,341.3 1103,353.7 1098.4,370.6 1081.5,375.1 1069.2,362.8      "/>
+	                              <polyline class="st1" points="1086.1,358.2 1136.4,307.9 1136.4,213.6 1097.9,213.6 1048.2,263.4 1048.2,374.4 1117.3,443.6
+	                                   1117.3,531.8 1145.5,531.8     "/>
+	                              <line class="st1" x1="115.5" y1="977.1" x2="115.5" y2="555.2"/>
+	                              <polygon class="st3" points="164,501.5 146.5,501.5 137.7,516.6 146.5,531.8 164,531.8 172.7,516.6    "/>
+	                              <line class="st1" x1="155.2" y1="977.1" x2="155.2" y2="516.6"/>
+	                              <polygon class="st3" points="206,501.5 188.5,501.5 179.7,516.6 188.5,531.8 206,531.8 214.7,516.6    "/>
+	                              <line class="st1" x1="197.2" y1="977.1" x2="197.2" y2="516.6"/>
+	                              <polygon class="st3" points="165.7,111.7 183.2,111.7 192,96.5 183.2,81.4 165.7,81.4 157,96.5   "/>
+	                              <line class="st1" x1="174.5" y1="-325.5" x2="174.5" y2="96.5"/>
+	                              <polygon class="st3" points="82.3,624 64.8,624 56,639.1 64.8,654.3 82.3,654.3 91,639.1    "/>
+	                              <line class="st1" x1="73.5" y1="977.1" x2="73.5" y2="639.1"/>
+	                              <polyline class="st1" points="143.5,261.3 59.5,177.3 33.4,177.3 -41.7,102.2 -105.6,102.2 -105.6,1.1 -60.2,-44.3 -60.2,-325.5
+	                                   "/>
+	                              <line class="st1" x1="31.5" y1="499.2" x2="-38.4" y2="499.2"/>
+	                              <line class="st1" x1="87.5" y1="205.3" x2="115.5" y2="177.3"/>
+	                              <polyline class="st1" points="640.6,275.3 640.6,387.2 570.6,457.2 570.6,977.1   "/>
+	                              <polyline class="st1" points="668.6,415.2 612.6,471.2 612.6,527.2 570.6,569.2   "/>
+	                              <line class="st1" x1="640.6" y1="555.2" x2="570.6" y2="625.1"/>
+	                              <polyline class="st2" points="682.6,261.3 724.6,303.3 724.6,431.5     "/>
+	                              <line class="st1" x1="682.6" y1="977.1" x2="682.6" y2="471.2"/>
+	                              <polyline class="st1" points="598.6,977.1 598.6,653.1 640.6,611.1     "/>
+	                              <polygon class="st3" points="691.3,344.1 673.8,344.1 665.1,359.2 673.8,374.4 691.3,374.4 700.1,359.2     "/>
+	                              <polygon class="st3" points="775.3,286.9 757.8,286.9 749.1,302.1 757.8,317.2 775.3,317.2 784,302.1  "/>
+	                              <polygon class="st3" points="673.1,398.3 656.2,402.8 651.7,419.7 664.1,432.1 681,427.6 685.5,410.7  "/>
+	                              <polygon class="st3" points="774,157.5 757.1,162 752.6,178.9 764.9,191.3 781.8,186.8 786.4,169.9    "/>
+	                              <polygon class="st3" points="733.3,415.2 715.8,415.2 707.1,430.4 715.8,445.5 733.3,445.5 742.1,430.4     "/>
+	                              <polygon class="st3" points="648,535.4 631.1,539.9 626.6,556.8 639,569.2 655.9,564.6 660.4,547.7    "/>
+	                              <polygon class="st3" points="648,591.3 631.1,595.9 626.6,612.8 639,625.1 655.9,620.6 660.4,603.7    "/>
+	                              <polyline class="st1" points="655,-44.4 585,25.6 585,102.2  "/>
+	                              <polyline class="st1" points="633.3,126.2 633.3,42.2 700.4,-24.9      "/>
+	                              <polygon class="st3" points="662.4,-64.2 645.5,-59.7 641,-42.8 653.4,-30.4 670.3,-35 674.8,-51.8    "/>
+	                              <polygon class="st3" points="707.8,-44.7 690.9,-40.2 686.4,-23.3 698.8,-10.9 715.7,-15.4 720.2,-32.3     "/>
+	                              <polyline class="st1" points="708.1,39.8 741.6,6.3 741.6,-69.8 827.8,-156  "/>
+	                              <polygon class="st3" points="700.7,59.6 717.6,55.1 722.1,38.2 709.7,25.8 692.8,30.4 688.3,47.3      "/>
+	                              <polyline class="st1" points="682.6,359.2 682.6,261.3 654.6,233.3 626.6,233.3 570.6,177.3 514.6,177.3 514.6,-72.3 541,-98.7
+	                                   541,-325.5     "/>
+	                              <polygon class="st3" points="649.3,260.1 631.9,260.1 623.1,275.3 631.9,290.4 649.3,290.4 658.1,275.3     "/>
+	                              <polyline class="st1" points="780.5,-49.6 780.5,39.8 710.6,109.8 710.6,177.3    "/>
+	                              <polygon class="st3" points="789.3,-64.7 771.8,-64.7 763.1,-49.6 771.8,-34.4 789.3,-34.4 798,-49.6  "/>
+	                              <polygon class="st3" points="653,178.9 636.1,174.4 623.7,186.8 628.2,203.7 645.1,208.2 657.5,195.8  "/>
+	                              <polygon class="st3" points="691.3,454.9 673.8,454.9 665.1,470 673.8,485.2 691.3,485.2 700.1,470    "/>
+	                              <polygon class="st3" points="775.3,540 757.8,540 749.1,555.2 757.8,570.3 775.3,570.3 784,555.2      "/>
+	                              <polygon class="st3" points="709,206.9 692.1,202.4 679.7,214.8 684.2,231.7 701.1,236.2 713.5,223.8  "/>
+	                              <polygon class="st3" points="649.3,652 631.9,652 623.1,667.1 631.9,682.3 649.3,682.3 658.1,667.1    "/>
+	                              <polyline class="st1" points="682.6,977.1 682.6,625.1 724.6,583.1 724.6,485.2 766.6,443.2 766.6,303.3    "/>
+	                              <line class="st1" x1="640.6" y1="977.1" x2="640.6" y2="667.1"/>
+	                              <polygon class="st3" points="682,54.2 664.5,54.2 655.8,69.4 664.5,84.5 682,84.5 690.8,69.4     "/>
+	                              <line class="st1" x1="673.3" y1="163.1" x2="673.3" y2="69.4"/>
+	                              <polyline class="st1" points="724.6,541.2 808.5,457.2 808.5,261.3 738.6,261.3 696.6,219.3      "/>
+	                              <polygon class="st3" points="778.9,99.3 762,94.8 749.7,107.1 754.2,124 771.1,128.6 783.5,116.2      "/>
+	                              <polyline class="st1" points="766.6,111.7 808.5,153.6 808.5,259.3     "/>
+	                              <polyline class="st1" points="514.6,135.3 584.6,135.3 640.6,191.3     "/>
+	                              <line class="st1" x1="766.6" y1="977.1" x2="766.6" y2="555.2"/>
+	                              <polygon class="st3" points="733.3,624 715.8,624 707.1,639.1 715.8,654.3 733.3,654.3 742.1,639.1    "/>
+	                              <line class="st1" x1="724.6" y1="977.1" x2="724.6" y2="639.1"/>
+	                              <polyline class="st1" points="794.5,261.3 710.6,177.3 684.4,177.3 609.3,102.2 545.4,102.2 545.4,1.1 590.8,-44.3 590.8,-325.5
+	                                   "/>
+	                              <line class="st1" x1="682.6" y1="499.2" x2="612.6" y2="499.2"/>
+	                              <line class="st1" x1="738.6" y1="205.3" x2="766.6" y2="177.3"/>
+	                              <polyline class="st1" points="1010.4,275.3 1010.4,387.2 1080.4,457.2 1080.4,977.1    "/>
+	                              <polyline class="st1" points="982.4,415.2 1038.4,471.2 1038.4,527.2 1080.4,569.2     "/>
+	                              <line class="st1" x1="1010.4" y1="555.2" x2="1080.4" y2="625.1"/>
+	                              <line class="st1" x1="1115.4" y1="569.2" x2="1115.4" y2="977.1"/>
+	                              <polyline class="st2" points="968.5,261.3 926.5,303.3 926.5,431.5     "/>
+	                              <line class="st1" x1="968.5" y1="977.1" x2="968.5" y2="471.2"/>
+	                              <polyline class="st1" points="1052.4,977.1 1052.4,653.1 1010.4,611.1  "/>
+	                              <polygon class="st3" points="959.7,344.1 977.2,344.1 985.9,359.2 977.2,374.4 959.7,374.4 951,359.2  "/>
+	                              <polygon class="st3" points="875.7,286.9 893.2,286.9 902,302.1 893.2,317.2 875.7,317.2 867,302.1    "/>
+	                              <polygon class="st3" points="977.9,398.3 994.8,402.8 999.3,419.7 987,432.1 970.1,427.6 965.6,410.7  "/>
+	                              <polygon class="st3" points="877.1,157.5 894,162 898.5,178.9 886.1,191.3 869.2,186.8 864.7,169.9    "/>
+	                              <polygon class="st3" points="917.7,415.2 935.2,415.2 944,430.4 935.2,445.5 917.7,445.5 909,430.4    "/>
+	                              <polygon class="st3" points="1003,535.4 1019.9,539.9 1024.4,556.8 1012.1,569.2 995.2,564.6 990.6,547.7   "/>
+	                              <polygon class="st3" points="1003,591.3 1019.9,595.9 1024.4,612.8 1012.1,625.1 995.2,620.6 990.6,603.7   "/>
+	                              <polyline class="st1" points="996.1,-44.4 1066,25.6 1066,102.2   "/>
+	                              <polyline class="st1" points="1017.7,126.2 1017.7,42.2 950.6,-24.9    "/>
+	                              <polygon class="st3" points="988.6,-64.2 1005.5,-59.7 1010,-42.8 997.7,-30.4 980.8,-35 976.3,-51.8  "/>
+	                              <polygon class="st3" points="943.2,-44.7 960.1,-40.2 964.6,-23.3 952.3,-10.9 935.4,-15.4 930.8,-32.3     "/>
+	                              <polyline class="st1" points="909.5,-325.5 909.5,6.3 943,39.8    "/>
+	                              <polygon class="st3" points="950.4,59.6 933.5,55.1 929,38.2 941.3,25.8 958.2,30.4 962.8,47.3   "/>
+	                              <polyline class="st1" points="1110,-98.7 1136.4,-72.3 1136.4,177.3 1080.4,177.3 1024.4,233.3 996.4,233.3 968.5,261.3
+	                                   968.5,359.2    "/>
+	                              <polygon class="st3" points="1001.7,260.1 1019.2,260.1 1027.9,275.3 1019.2,290.4 1001.7,290.4 992.9,275.3     "/>
+	                              <polyline class="st1" points="870.5,-49.6 870.5,39.8 940.5,109.8 940.5,177.3    "/>
+	                              <polygon class="st3" points="861.7,-64.7 879.2,-64.7 888,-49.6 879.2,-34.4 861.7,-34.4 853,-49.6    "/>
+	                              <polygon class="st3" points="998.1,178.9 1015,174.4 1027.3,186.8 1022.8,203.7 1005.9,208.2 993.5,195.8   "/>
+	                              <polygon class="st3" points="959.7,454.9 977.2,454.9 985.9,470 977.2,485.2 959.7,485.2 951,470      "/>
+	                              <polygon class="st3" points="875.7,540 893.2,540 902,555.2 893.2,570.3 875.7,570.3 867,555.2   "/>
+	                              <polygon class="st3" points="942.1,206.9 959,202.4 971.4,214.8 966.8,231.7 949.9,236.2 937.6,223.8  "/>
+	                              <polygon class="st3" points="1001.7,652 1019.2,652 1027.9,667.1 1019.2,682.3 1001.7,682.3 992.9,667.1    "/>
+	                              <polygon class="st3" points="1106.7,554 1124.1,554 1132.9,569.2 1124.1,584.3 1106.7,584.3 1097.9,569.2   "/>
+	                              <polyline class="st1" points="968.5,977.1 968.5,625.1 926.5,583.1 926.5,485.2 884.5,443.2 884.5,303.3    "/>
+	                              <line class="st1" x1="1010.4" y1="977.1" x2="1010.4" y2="667.1"/>
+	                              <polygon class="st3" points="969,54.2 986.5,54.2 995.3,69.4 986.5,84.5 969,84.5 960.3,69.4     "/>
+	                              <line class="st1" x1="977.8" y1="163.1" x2="977.8" y2="69.4"/>
+	                              <polyline class="st1" points="926.5,541.2 842.5,457.2 842.5,261.3 912.5,261.3 954.5,219.3      "/>
+	                              <polygon class="st3" points="872.1,99.3 889,94.8 901.4,107.1 896.9,124 880,128.6 867.6,116.2   "/>
+	                              <polyline class="st1" points="884.5,111.7 842.5,153.6 842.5,259.3     "/>
+	                              <polyline class="st1" points="1136.4,135.3 1066.4,135.3 1010.4,191.3  "/>
+	                              <line class="st1" x1="884.5" y1="977.1" x2="884.5" y2="555.2"/>
+	                              <polygon class="st3" points="836,501.5 853.5,501.5 862.3,516.6 853.5,531.8 836,531.8 827.3,516.6    "/>
+	                              <line class="st1" x1="844.8" y1="977.1" x2="844.8" y2="516.6"/>
+	                              <polygon class="st3" points="794,501.5 811.5,501.5 820.3,516.6 811.5,531.8 794,531.8 785.3,516.6    "/>
+	                              <line class="st1" x1="802.8" y1="977.1" x2="802.8" y2="516.6"/>
+	                              <polygon class="st3" points="834.3,111.7 816.8,111.7 808,96.5 816.8,81.4 834.3,81.4 843,96.5   "/>
+	                              <line class="st1" x1="825.5" y1="-325.5" x2="825.5" y2="96.5"/>
+	                              <polygon class="st3" points="917.7,624 935.2,624 944,639.1 935.2,654.3 917.7,654.3 909,639.1   "/>
+	                              <line class="st1" x1="926.5" y1="977.1" x2="926.5" y2="639.1"/>
+	                              <polyline class="st1" points="856.5,261.3 940.5,177.3 966.6,177.3 1041.7,102.2 1105.6,102.2 1105.6,1.1 1060.2,-44.3
+	                                   1060.2,-325.5  "/>
+	                              <line class="st1" x1="968.5" y1="499.2" x2="1038.4" y2="499.2"/>
+	                              <line class="st1" x1="912.5" y1="205.3" x2="884.5" y2="177.3"/>
+	                         </g>
+	                        	<!-- <polygon class="bulb_line st3" points="523,977.1 500,990.8 477.1,977.1 477.1,408.3 500,422.1 523,408.3 	"/> -->
+	                         <radialGradient id="SVGID_2_" cx="498.1967" cy="305.4385" r="804.9832" gradientTransform="matrix(1.2059 0 0 1 -100.7795 0)" gradientUnits="userSpaceOnUse">
+	                              <stop  offset="0" style="stop-color:#BE752A;stop-opacity:0"/>
+	                              <stop  offset="0.1571" style="stop-color:#BE752A;stop-opacity:0"/>
+	                              <stop  offset="0.1713" style="stop-color:#BE752A;stop-opacity:0"/>
+	                              <stop  offset="0.6382" style="stop-color:#BE752A"/>
+	                              <stop  offset="1" style="stop-color:#BE752A"/>
+	                         </radialGradient>
+	                         <rect id="bulb_background" x="-470.1" y="-331" class="st5" width="1940.3" height="1609"/>
+	                         <rect x="-470.1" y="-597" class="st6" width="1940.3" height="266"/>
+	                         <rect x="-470.1" y="1277.9" class="st6" width="1940.3" height="266"/>
+	                         <rect x="-719" y="-597" class="st6" width="248.9" height="2140.9"/>
+	                         <rect x="1470.1" y="-597" class="st6" width="248.9" height="2140.9"/>
+	                         <g>
+	                              <polygon id="bulb_line" class="bulb_line" fill="#EA8F23" points="477.1,408.3 500,422.1 523,408.3 523,414 500,427 477.1,414"/>
+	                              <path id="bulb" class="bulb st3" stroke-dashoffset="500" stroke-dasharray="500" d="M550.9,334.2c4.3-8,6.7-17.2,6.7-26.9c0-31.8-25.8-57.6-57.6-57.6c-31.8,0-57.6,25.8-57.6,57.6
+	                              c0,9.7,2.4,18.9,6.7,26.9c0,0,27.9,40.3,27.9,57l0,0v22.7l23,13.7l22.9-13.7l0-8.7c0,0,0-14,0-14
+	                              C523,374.5,550.9,334.2,550.9,334.2z M520.4,346.9c-11.3,19.6-16.5,33.7-16.5,44.3c0,0.2-0.1,0.5-0.1,0.8v-56.4h4.6l8.3-14.3H508
+	                              l-4,6.9h-8l-4-6.9h-8.6l8.3,14.3h4.6v56.4c-0.1-0.3-0.1-0.5-0.1-0.8c0-10.6-5.2-24.7-16.5-44.3c-0.1-0.1-8.5-14.5-13.9-22.1
+	                              l-0.1-0.1l-0.1-0.1c-2.7-5.4-4.1-11.2-4.1-17.3c0-21.2,17.2-38.4,38.4-38.4c21.2,0,38.4,17.2,38.4,38.4c0,6-1.3,11.7-3.9,17
+	                              l-0.1,0.1l-0.1,0.1C532.2,327.8,526.3,336.5,520.4,346.9z"/>
+
+	                         </g>
+	                    </g>
+                    </svg>
+               </div>
+
+          </div>
+          <div class="nlp-hero-straighten">
+               <div class="container" style="height:350px;margin-top:0;">
+                    <div class="hidden-md hidden-lg" style="height:10px;"></div>
+                    <div class="row header-button-row" style="height:40px;">
+                         <div class="col-xs-12 text-xs-center text-md-right">
+                              <div class="hex-button nlp-orange-light">
+                                  <a class="btn btn-primary" href="#form">Try it Free</a>
+                              </div>
+                              <div class="hex-button nlp-orange-light">
+                                  <a class="btn btn-primary" href="/app" target="_blank">Sign In</a>
+                              </div>
+                         </div>
+                    </div>
+                    <div class="row" style="height:310px;display:flex;align-items:center;">
+                         <div class="col-xs-5 text-xs-center text-sm-right" style="margin-top:auto;margin-bottom:auto;" id="title_left">
+                              <span class="nlp_title_font">
+                              	<div class="d-block d-sm-none"><br></div>
+                                   <div id="left_1" style="opacity:0;">Innovation starts with&nbsp;an&nbsp;idea.</div>
+                                   <div id="left_2" style="opacity:0;">But is it...<div id="left_2_1" style="opacity:0;"><b>New</b>?</div></div>
+                                   <div id="left_3" style="opacity:0;"><b>Inventive</b>?</div>
+                                   <div id="left_4" style="opacity:0;"><b>Patentable</b>?</div>
+                              </span>
+                         </div>
+                         <div class="col-xs-2"></div>
+                         <div class="col-xs-5 text-xs-center text-sm-left" style="margin-top:auto;margin-bottom:auto;display:none;" id="title_right">
+                         	<div class="hidden-sm-up"><br></div>
+                              <div class="hidden-sm hidden-md hidden-lg nlp_title_font">NLPatent uses<br><b>Artificial Intelligence</b><br class="hidden-sm hidden-xs"> to give you the answers.</div>
+                              <div class="hidden-xs nlp_title_font">NLPatent uses<br><b>Artificial Intelligence</b><br class="hidden-sm hidden-xs"> to give you the answers.</div>
+                         </div>
+
+                    </div>
+               </div>
+          </div>
+     </div>
+     <div class="nlp-hero-skew-borderbottom" style="transform:skewY(-7.5deg);"></div>
+
+     <script>
+          function debounce(func, wait, immediate) {
+               var timeout;
+               return function() {
+                    var context = this, args = arguments;
+                    var later = function() {
+                         timeout = null;
+                         if (!immediate) func.apply(context, args);
+                    };
+                    var callNow = immediate && !timeout;
+                    clearTimeout(timeout);
+                    timeout = setTimeout(later, wait);
+                    if (callNow) func.apply(context, args);
+               };
+          };
+          var resizeNLPcircuit = debounce(function() {
+          	get_form_panel_heights();
+               var newheights = get_panel_heights("nlp-main-panel");
+               $("#nlp-main-panel-image").height(newheights[0]).css("top","-"+ newheights[1]+"px");
+               $("#svg-code").css("min-height",newheights[0]+"px");
+          }, 250);
+          // scroll to top on reload
+          window.onbeforeunload = function() {window.scrollTo(0,0);} // forces scroll to top on reload
+          // function to set the height of the form panel back, based upon height of form and the math from get_panel_heights()
+          function get_form_panel_heights(){
+          	var panel_form_height = $("#form_panel").height();
+          	var panel_form_back_height = $("#form_panel_back").height();
+          	var new_panel_heights = get_panel_heights("form_panel_back");
+          	$("#form_panel").css("top",new_panel_heights[1] +"px");
+          	$(".nlp-hero-straighten", "#form_panel_back").height( (panel_form_height + (new_panel_heights[1] *2)));
+          }
+          //
+          // below is main function fired on document.ready, sets up animation sequencing and timing
+          //
+          $( document ).ready(function() {
+          	// resize circuit to fit aspect ratio of page
+               resizeNLPcircuit();
+               //
+               // detect IE for SVG errors
+               //
+               var ua = navigator.userAgent;
+			if(ua.indexOf("MSIE ") > -1 || ua.indexOf("Trident") > -1)
+			{
+			    console.log("IE");
+			}
+               var opening_anim_sequence = [
+                    { e: $("#preloader_holder"), p: { opacity: 0 } , o : { display:'none', delay: 1000, duration: 500 } },
+                    { e: $("#bulb", "svg"), p: { 'fill' : '#ffffff' }, o: { delay: 800, duration: 1500, sequenceQueue: false } },
+                    { e: $("#bulbglow", "svg"), p: { opacity: 1}, o : { duration: 1500, loop:true, sequenceQueue: false } },
+                    { e: $("#left_1","#title_left"), p: { opacity: 1  } , o: { display: "block", duration: 1000, sequenceQueue: false } },
+                    { e: $("#left_2","#title_left"), p: { opacity: 1  } , o: { display: "block", delay: 150, duration: 700 } },
+                    { e: $("#left_2_1","#title_left"), p: { opacity: 1  } , o: { display: "block", delay: 150, duration: 700, complete: function(){
+                    	$("#lawyer-icon,#inventor-icon,#researcher-icon").css("opacity","1");
+                    	new Vivus("lawyer-icon", { type:"oneByOne" , pathTimingFunction:Vivus.EASE_OUT, animTimingFunction: Vivus.LINEAR, duration: 90 });
+               		new Vivus("researcher-icon", { type:"oneByOne" , pathTimingFunction:Vivus.EASE_OUT, animTimingFunction: Vivus.LINEAR, duration: 90 });
+               		new Vivus("inventor-icon", { type:"oneByOne" , pathTimingFunction:Vivus.EASE_OUT, animTimingFunction: Vivus.LINEAR, duration: 90 });
+               		//
+                    } } },
+                    { e: $("#left_3","#title_left"), p: { opacity: 1  } , o: { display: "block", delay: 150, duration: 700 } },
+                    { e: $("#left_4","#title_left"), p: { opacity: 1  } , o: { display: "block", delay: 150, duration: 700 } },
+                    { e: $("#title_right"), p: { opacity: 1 } , o: { display: "block", delay: 100, duration: 800 } },
+ 				{ e: $("#bulb_line"), p: { 'fill': "#ffffff" } , o: { duration: 100, complete: function(){
+                    	var bulb_line = d3.select(document.getElementById('bulb_line'))
+				    	bulb_line
+						.transition()
+						.delay(100)
+						.duration(1500)
+						.attr('points','477.1,408.3 500,422.1 523,408.3 523,977.1 500,991 477.1,977.1')
+                    }} },
+                    { e: $("#product_header"), p: { opacity: 1 } , o: { delay:800, duration:500 } }
+               ];
+          	//
+               $("body").removeClass("animation_lock"); // remove overflow lock
+               $.Velocity.RunSequence(opening_anim_sequence); // run animaiton
+          });
+          window.addEventListener('resize', resizeNLPcircuit); // will re-draw nlpcircuit region on resize
+          //
+          // function to retrieve height of skewed panel
+          function get_panel_heights(panelID){
+          	// this calculates the height of the skewed section based on 7.5degree skew and returns value to resize the NLPcircuit section
+               var parentWidth = $("#"+panelID).width();
+               var parentHeight = $("#"+panelID).height();
+               var degrees = 7.5;
+               var radians= degrees*Math.PI/180;
+               var newHeight = parentWidth*Math.tan(radians);
+               var newOffset = newHeight / 2;
+               var parentHeight = parentHeight + newHeight;
+               return [parentHeight,newOffset,parentWidth];
+          }
+     </script>
+
+     <div class="nlp-hero-skew nlp-hero-white">
+          <div class="nlp-hero-straighten">
+               <div class="container">
+                    <div class="row">
+                         <div class="col-xs-12 text-xs-center" id="product_header" style="opacity:0;">
+                              <h4>NLPatent is a <b>new online tool</b><span class="hidden-md hidden-lg"><br></span> for patent professionals.<BR><BR>It <i>streamlines</i> the prior art search process by leveraging AI.</h4>
+                              <br>
+                         </div>
+                    </div>
+                    <div class="row">
+                         <div class="col-xs-12 col-sm-4 text-xs-center">
+                              <svg class="product-icon1" id="lawyer-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 108 108" xml:space="preserve" stro>
+                                   <g id="lawyer">
+                                        <path class="icon_st5" d="M37.9,67.8 32.1,73.3 20.4,73.3 14.6,67.8 37.9,67.8      "/>
+                                        <path class="icon_st5" d="M14.6,67.8 26.2,40.6 37.9,67.8     "/>
+                                        <path class="icon_st5" d="M48.4,24.8 33.5,24.8 26.2,35.5     "/>
+                                        <path class="icon_st5" d="M94.8,67.8 71.5,67.8 77.3,73.3 88.9,73.3 94.8,67.8  "/>
+                                        <path class="icon_st5" d="M94.8,67.8 83.1,40.6 71.5,67.8     "/>
+                                        <path class="icon_st5" d="M83.1,35.5 75.9,24.8 60.9,24.8     "/>
+                                        <path class="icon_st5" d="M54.8,31.1c3.4-0.1,6.1-2.8,6.1-6.2c0-3.5-2.8-6.2-6.2-6.2s-6.2,2.8-6.2,6.2s2.8,6.2,6.2,6.2"/>
+                                        <path class="icon_st6" d="M54.7,31.1v25.5c0,0,0,0,0,0c0,0,0,0.1,0,0.1v27.2"/>
+                                        <path class="icon_st5" d="M62.5,90.6 58.6,83.9 50.8,83.9 46.9,90.6      "/>
+                                        <path class="icon_st5" d="M75.2,90.6H54.5c0,0,0,0,0,0c0,0,0,0,0,0h-20"/>
+                                   </g>
+                              </svg>
+                              <p style="color:#425968;"><b>Law firms</b><br>Help your clients reduce the uncertainty involved in applying for a patent.</p>
+                         </div>
+
+                         <div class="col-xs-12 col-sm-4 text-xs-center">
+	                         <svg class="product-icon2" id="researcher-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 108 108" xml:space="preserve">
+	                              <g id="researcher">
+	                                   <path class="icon_st5" d="M64,90.7H31.7c-1.6,0-2.9-1.3-2.9-2.9s1.3-2.9,2.9-2.9h30.7l11.8-20.4L62.3,44.1h-7.9v-5.7H64
+	                                        c1,0,2,0.5,2.5,1.4l13.5,23.3c0.5,0.9,0.5,2,0,2.9L66.5,89.3C65.9,90.1,65,90.7,64,90.7z"/>
+	                                   <path class="icon_st5" d="M38.4,77.6 57.2,77.6"/>
+	                                   <path class="icon_st5" d="M41.6,28.4 54.4,28.4 54.4,54 41.6,54 41.6,28.4"/>
+	                                   <path class="icon_st5" d="M42.9,18.7 42.9,22.6 44.7,22.6 44.7,28.4 51.3,28.4 51.3,22.6 53.1,22.6 53.1,18.7  z"/>
+	                                   <path class="icon_st5" d="M54.4,54 51.2,59.5 44.8,59.5 41.6,54      z"/>
+	                                   <path class="icon_st5" d="M39.8,84.8 43.9,77.7 52.1,77.7 56.2,84.8  z"/>
+	                                   <path class="icon_st5" d="M48,59.5 48,64.5"/>
+	                                   <path class="icon_st5" d="M43.2,56.8 38.9,59.3"/>
+	                                   <path class="icon_st5" d="M52.8,56.8 57.1,59.3"/>
+
+	                              </g>
+	                         </svg>
+	                         <p style="color:#425968;"><b>R&D teams</b><br>Make better and faster decisions about whether an idea is worth pursuing.</p>
+	                    </div>
+
+	                    <div class="col-xs-12 col-sm-4 text-xs-center">
+                              <svg class="product-icon3" id="inventor-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 108 108" xml:space="preserve">
+                                   <g id="inventor">
+                                        <path class="icon_st5" d="M23.6,18.7 12.9,18.7 7.6,27.9 7.6,81.5 12.9,72.2 23.6,72.2    z"/>
+                                        <path class="icon_st5" d="M7.6,81.5 12.9,90.7 23.6,90.7 85.2,90.7 95.8,90.7 101.2,81.5      "/>
+                                        <path class="icon_st5" d="M85.2,18.7 95.8,18.7 101.2,27.9 101.2,81.5 95.8,72.2 85.2,72.2     z"/>
+                                        <path class="icon_st5" d="M85.2,27.9 23.6,27.9"/>
+                                        <path class="icon_st5" d="M54.4,52.5 42.4,40.5 35.1,47.7 47.2,59.8      "/>
+                                        <path class="icon_st5" d="M54.4,67 66,78.6 73.6,79 73.2,71.3 61.6,59.7  "/>
+                                        <path class="icon_st5" d="M35.1,71.8 42.3,79 73.6,47.7 66.4,40.5 35.9,71     z"/>
+                                        <path class="icon_st5" d="M44.2,70.4 40.3,66.6"/>
+                                        <path class="icon_st5" d="M46.5,65.8 43.8,63.1"/>
+                                        <path class="icon_st5" d="M51.1,63.5 47.3,59.6"/>
+                                        <path class="icon_st5" d="M53.5,58.9 50.8,56.1"/>
+                                        <path class="icon_st5" d="M58.1,56.5 54.3,52.7"/>
+                                        <path class="icon_st5" d="M60.4,51.9 57.7,49.2"/>
+                                        <path class="icon_st5" d="M65,49.6 61.2,45.7"/>
+                                        <path class="icon_st5" d="M47.8,45.9 40.6,53.2"/>
+                                        <path class="icon_st5" d="M70.4,68.6 63.2,75.8"/>
+                                   </g>
+                              </svg>
+                              <p style="color:#425968;"><b>Search providers</b><br>Give your customers more accurate results with shorter turnaround times.</p>
+                         </div>
+                    </div>
+                    <!-- <div class="row">
+                         <div class="col-xs-12 col-md-10 col-md-offset-1">
+                              <div class="row">
+
+                                   <div class="col-xs-12 col-md-4 text-xs-center">
+                                        <div class="row">
+                                             <div class="col-xs-4 col-md-12 text-xs-center">
+                                                  <svg class="product-icon1" id="lawyer-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 108 108" xml:space="preserve">
+                                                       <g id="lawyer">
+                                                            <path class="icon_st5" d="M37.9,67.8 32.1,73.3 20.4,73.3 14.6,67.8 37.9,67.8      "/>
+                                                            <path class="icon_st5" d="M14.6,67.8 26.2,40.6 37.9,67.8     "/>
+                                                            <path class="icon_st5" d="M48.4,24.8 33.5,24.8 26.2,35.5     "/>
+                                                            <path class="icon_st5" d="M94.8,67.8 71.5,67.8 77.3,73.3 88.9,73.3 94.8,67.8  "/>
+                                                            <path class="icon_st5" d="M94.8,67.8 83.1,40.6 71.5,67.8     "/>
+                                                            <path class="icon_st5" d="M83.1,35.5 75.9,24.8 60.9,24.8     "/>
+                                                            <path class="icon_st5" d="M54.8,31.1c3.4-0.1,6.1-2.8,6.1-6.2c0-3.5-2.8-6.2-6.2-6.2s-6.2,2.8-6.2,6.2s2.8,6.2,6.2,6.2"/>
+                                                            <path class="icon_st6" d="M54.7,31.1v25.5c0,0,0,0,0,0c0,0,0,0.1,0,0.1v27.2"/>
+                                                            <path class="icon_st5" d="M62.5,90.6 58.6,83.9 50.8,83.9 46.9,90.6      "/>
+                                                            <path class="icon_st5" d="M75.2,90.6H54.5c0,0,0,0,0,0c0,0,0,0,0,0h-20"/>
+                                                       </g>
+                                                  </svg>
+                                             </div>
+                                             <div class="col-xs-8 col-md-12 text-xs-left text-md-center">
+                                                  <p style="color:#425968;"><b>For Lawyers</b><br>Patent professionals can help clients drastically reduce the uncertainty involved in applying for a patent.</p>
+                                             </div>
+                                        </div>
+                                   </div>
+
+                                   <div class="col-xs-12 col-md-4 text-xs-center">
+                                        <div class="row">
+                                             <div class="col-xs-4 col-md-12">
+                                                  <svg class="product-icon2" id="researcher-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 108 108" xml:space="preserve">
+                                                       <g id="researcher">
+                                                            <path class="icon_st5" d="M64,90.7H31.7c-1.6,0-2.9-1.3-2.9-2.9s1.3-2.9,2.9-2.9h30.7l11.8-20.4L62.3,44.1h-7.9v-5.7H64
+                                                                 c1,0,2,0.5,2.5,1.4l13.5,23.3c0.5,0.9,0.5,2,0,2.9L66.5,89.3C65.9,90.1,65,90.7,64,90.7z"/>
+                                                            <path class="icon_st5" d="M38.4,77.6 57.2,77.6"/>
+                                                            <path class="icon_st5" d="M41.6,28.4 54.4,28.4 54.4,54 41.6,54 41.6,28.4"/>
+                                                            <path class="icon_st5" d="M42.9,18.7 42.9,22.6 44.7,22.6 44.7,28.4 51.3,28.4 51.3,22.6 53.1,22.6 53.1,18.7  z"/>
+                                                            <path class="icon_st5" d="M54.4,54 51.2,59.5 44.8,59.5 41.6,54      z"/>
+                                                            <path class="icon_st5" d="M39.8,84.8 43.9,77.7 52.1,77.7 56.2,84.8  z"/>
+                                                            <path class="icon_st5" d="M48,59.5 48,64.5"/>
+                                                            <path class="icon_st5" d="M43.2,56.8 38.9,59.3"/>
+                                                            <path class="icon_st5" d="M52.8,56.8 57.1,59.3"/>
+
+                                                       </g>
+                                                  </svg>
+                                             </div>
+                                             <div class="col-xs-8 col-md-12 text-xs-left text-md-center">
+                                                  <p style="color:#425968;"><b>For Researchers</b><br>Corporate and university research teams can make better and faster decisions about whether an invention is worth pursuing.</p>
+                                             </div>
+                                        </div>
+
+
+                                   </div>
+
+                                   <div class="col-xs-12 col-md-4 text-xs-center">
+                                        <div class="row">
+                                             <div class="col-xs-4 col-md-12">
+                                                  <svg class="product-icon3" id="inventor-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 108 108" xml:space="preserve">
+                                                       <g id="inventor">
+                                                            <path class="icon_st5" d="M23.6,18.7 12.9,18.7 7.6,27.9 7.6,81.5 12.9,72.2 23.6,72.2    z"/>
+                                                            <path class="icon_st5" d="M7.6,81.5 12.9,90.7 23.6,90.7 85.2,90.7 95.8,90.7 101.2,81.5      "/>
+                                                            <path class="icon_st5" d="M85.2,18.7 95.8,18.7 101.2,27.9 101.2,81.5 95.8,72.2 85.2,72.2     z"/>
+                                                            <path class="icon_st5" d="M85.2,27.9 23.6,27.9"/>
+                                                            <path class="icon_st5" d="M54.4,52.5 42.4,40.5 35.1,47.7 47.2,59.8      "/>
+                                                            <path class="icon_st5" d="M54.4,67 66,78.6 73.6,79 73.2,71.3 61.6,59.7  "/>
+                                                            <path class="icon_st5" d="M32.2,54.7 76.5,54.7 76.5,64.9 32.2,64.9 32.2,54.7" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -26.3227 55.9473)"/>
+                                                            <path class="icon_st5" d="M44.2,70.4 40.3,66.6"/>
+                                                            <path class="icon_st5" d="M46.5,65.8 43.8,63.1"/>
+                                                            <path class="icon_st5" d="M51.1,63.5 47.3,59.6"/>
+                                                            <path class="icon_st5" d="M53.5,58.9 50.8,56.1"/>
+                                                            <path class="icon_st5" d="M58.1,56.5 54.3,52.7"/>
+                                                            <path class="icon_st5" d="M60.4,51.9 57.7,49.2"/>
+                                                            <path class="icon_st5" d="M65,49.6 61.2,45.7"/>
+                                                            <path class="icon_st5" d="M47.8,45.9 40.6,53.2"/>
+                                                            <path class="icon_st5" d="M70.4,68.6 63.2,75.8"/>
+                                                       </g>
+                                                  </svg>
+                                             </div>
+                                             <div class="col-xs-8 col-md-12 text-xs-left text-md-center">
+                                                  <p style="color:#425968;"><b>For Inventors</b><br>Innovators can create with more confidence by receiving expert insights at a fraction of the cost of retaining a specialist.</p>
+                                             </div>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+                    </div> -->
+
+               </div>
+          </div>
+     </div>
+
+    <div class="nlp-hero-skew nlp-hero-lightest-grey">
+          <div class="nlp-hero-straighten">
+               <div class="container">
+               	<div class="row">
+                         <div class="col-xs-12 text-xs-center">
+                              <h3>Why use our AI?</h3>
+                              <p>Because it's more effective than traditional approaches, and <b>we can prove it</b>.</p>
+                              <BR>
+                              <div class="hex-button nlp-orange" style="width:130px;margin:0 auto;">
+                                   <a href="https://medium.com/@legalicity/can-artificial-intelligence-understand-patents-2e9d15aefaed" target="_new"><button type="button" class="btn btn-primary">Learn more</button></a>
+                              </div>
+                         </div>
+                    </div>
+                    <BR>
+                    <div class="row">
+                    	<div class="col-xs-12 col-md-4 text-xs-center">
+                    		<div class="card_icon"><img src="/static/images/why_icon_2.png" class="img-responsive"></div>
+                    		<b>Accurate CPC classification</b><br><br>
+                    		<p><i>Over 90%</i> chance of identifying exactly which technology areas your invention belongs to.</p>
+                    	</div>
+                    	<div class="col-xs-12 col-md-4 text-xs-center">
+                    		<div class="card_icon"><img src="/static/images/why_icon_3.png" class="img-responsive"></div>
+                    		<b>Comprehensive search</b><br><br>
+                    		<p><i>Over 50%</i> chance of instantly finding prior art that was cited by a human expert.</p>
+                    	</div>
+                    	<div class="col-xs-12 col-md-4 text-xs-center">
+                    		<div class="card_icon"><img src="/static/images/why_icon_4.png" class="img-responsive"></div>
+                    		<b>Prediction of success</b><br><br>
+                    		<p><i>Up to 89%</i> chance of predicting whether your application will be rejected.</p>
+                    	</div>
+                    </div>
+               </div>
+          </div>
+     </div>
+
+     <div class="nlp-hero-skew nlp-hero-white">
+          <div class="nlp-hero-straighten">
+               <div class="container">
+               	<div class="row">
+                         <div class="col-xs-12 text-xs-center">
+                              <h3>What makes NLPatent different?</h3>
+                              <Br>
+                         </div>
+                    </div>
+                    <div class="row">
+                    	<div class="col-xs-12">
+                    		<table class="nlp_feature_table table-bordered table-striped" style="max-width:1000px;margin:0 auto;">
+                    			<thead>
+                    				<tr>
+                    					<th class="nofill"></th>
+                    					<th class="nofill"><img src="/static/images/table_icon_1.png" style="max-width:40px;"></th>
+                    					<th class="nofill"><img src="/static/images/table_icon_2.png" style="max-width:40px;opacity:0.3;"></th>
+                    					<th class="nofill"><img src="/static/images/table_icon_3.png" style="max-width:40px;opacity:0.3;"></th>
+                    				</tr>
+                    				<tr>
+                    					<th></th>
+                    					<th>NLPatent's semantic search</th>
+                    					<th>Traditional keyword search</th>
+                    					<th>Outsourcing to third parties</th>
+                    				</tr>
+                    			</thead>
+                    			<tbody>
+                    				<tr><td>Proven high quality of results</td><td><div class="check"></div></td><td><div class="question"></div></td><td><div class="question"></div></td></tr>
+								<tr><td>Complete control over the search process</td><td><div class="check"></div></td><td><div class="check"></div></td><td><div class="x"></div></td></tr>
+								<tr><td>Ability to analyze full-text input </td><td><div class="check"></div></td><td><div class="x"></div></td><td><div class="check"></div></td></tr>
+								<tr><td>Guaranteed confidentiality of your data</td><td><div class="check"></div></td><td><div class="question"></div></td><td><div class="x"></div></td></tr>
+								<tr><td>Results delivered instantly on your PC or mobile device</td><td><div class="check"></div></td><td><div class="check"></div></td><td><div class="x"></div></td></tr>
+								<tr><td>Affordable and flexible pricing</td><td><div class="check"></div></td><td><div class="check"></div></td><td><div class="question"></div></td></tr>
+								<tr><td>Prior art discovery through semantic analysis</td><td><div class="check"></div></td><td><div class="x"></div></td><td><div class="x"></div></td></tr>
+								<tr><td>Automatic prediction of success</td><td><div class="check"></div></td><td><div class="x"></div></td><td><div class="x"></div></td></tr>
+								</tbody>
+							</table>
+
+
+                    	</div>
+                    </div>
+               </div>
+          </div>
+     </div>
+
+
+     <div style="position:relative;">
+	     <div id="form_panel_back" class="nlp-hero-skew nlp-hero-light-grey" style="-ms-overflow-style:none;overflow: visible;background-image:url(/static/images/panel_hex_bck.png) !important;">
+	          <div class="nlp-hero-straighten" style="min-height:300px;">
+	          </div>
+	     </div>
+
+	     <div id="form_panel" style="position:absolute;top:0px;width:100%;color:#fff;">
+	     	<a name="form">&nbsp;</a>
+	          <div class="container">
+	          	<div class="row">
+                         <div class="col-xs-12 text-xs-center">
+                              <h3>How does our pricing work?</h3>
+                              <Br><BR>
+                         </div>
+                    </div>
+	               <div class="row h-100">
+	                    <div class="col-xs-12 col-md-7 text-xs-center" style="margin-top:auto;margin-bottom:auto;">
+						<p><b><i>No hidden fees.<br>
+						No hourly billings.<br>
+						No mandatory monthly subscriptions.</i></b></p>
+						<br>
+						<h4 class="nlp-orange" style="font-weight:400;">Just pay per search.</h4>
+						<br>
+						<p>That means you only pay for what you use,<BR>with the option of going unlimited if you're a high-volume user.</p>
+	                    </div>
+	                    <div class="col-xs-12 col-md-5" id="form-col">
+	                    	<hr class="hidden-md hidden-lg">
+	                         <center>Contact us to request a free trial of NLPatent.</center>
+
+	                         <br>
+	                         <form action="/addtrial" method="POST" id="nlp_form"  autocomplete="off">
+	                              <div class="form-group row text-xs-left text-md-center">
+	                                   <label for="inputEmail3" class="col-sm-3 control-label"><b>Name</b></label>
+	                                   <div class="col-sm-9">
+	                                        <div class="hex-field">
+	                                             <input type="text" class="form-control hex" name="name" id="name" placeholder="Your Name">
+	                                        </div>
+							     	<div id="form-name-error" class="invalid-feedback">
+							     		Please enter your name.
+							     	</div>
+	                                   </div>
+	                              </div>
+	                              <div class="form-group row text-xs-left text-md-center">
+	                                   <label for="inputPassword3" class="col-sm-3 control-label"><b>Email</b></label>
+	                                   <div class="col-sm-9">
+	                                        <div class="hex-field">
+	                                             <input type="email" class="form-control hex" name="email" id="email" placeholder="Your Email">
+	                                        </div>
+							     	<div id="form-email-error" class="invalid-feedback">
+							     		Please enter your email.
+							     	</div>
+	                                   </div>
+	                              </div>
+	                              <div class="form-group row">
+	                                   <div class="col-sm-12 text-right">
+	                                        <div class="hex-button nlp-orange" style="float:right;">
+	                                             <button type="submit" class="btn btn-primary" id="nlp_form_submit">Submit</button>
+	                                        </div>
+	                                        <br><br>
+	                                   </div>
+	                              </div>
+	                         </form>
+
+                         <script>
+                    		$('#nlp_form').submit(function(event) {
+							event.preventDefault();
+							function ajaxCall(url, type, data, callback) {
+								$.ajax({
+									url: url,
+									type: type,
+									data: data,
+									dataType: 'json',
+									success: function(response_data) {
+										callback(true,response_data);
+									},
+									error: function() {
+										callback(false, null);
+									}
+								});
+							}
+							var form = $(this);
+							function ajaxCallComplete(pass,data) {
+								if (pass){
+									if ( Object.keys(data)[0] == "added" ){
+										$("#form-col").fadeOut(0).addClass("text-xs-center").html("<h5 class='nlp-orange-light'>You have been added to the list.</h5>").fadeIn(300);
+									} else {
+										$("#form-col").fadeOut(0).addClass("text-xs-center").html("<h5 class='nlp-orange-light'>You have been added to the list.</h5>").fadeIn(300);
+									}
+								} else {
+								}
+							};
+							//
+							// validate forms
+							var form_email_good = false;
+							var form_name_good = false
+							var form_name = $('#nlp_form').find('input[name="name"]').val();
+							var form_email = $('#nlp_form').find('input[name="email"]').val();
+						     // email
+							function validateEmail(email) {
+								var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+								return re.test(String(email).toLowerCase());
+							}
+							if (validateEmail(form_email)) {
+								$("#form-email-error").fadeOut(100);
+								form_email_good = true;
+							} else {
+								$("#form-email-error").fadeIn(100);
+							}
+							// check if name is populated
+							if (form_name != ""){
+								$("#form-name-error").fadeOut(100);
+								form_name_good = true;
+							} else {
+								$("#form-name-error").fadeIn(100);
+							}
+							// final check
+							if ( form_email_good && form_name_good ){
+								ajaxCall("/addtrial", "POST", $("#nlp_form").serialize(), ajaxCallComplete);
+							}
+							return false;
+						});
+						</script>
+	                    </div>
+	               </div>
+	          </div>
+	     </div>
+	</div>
+
+    <div class="nlp-hero-skew nlp-hero-lightest-white">
+          <div class="nlp-hero-straighten">
+               <div class="container legal">
+                    <div class="row">
+                         <div class="col-xs-12 text-xs-center">
+                              <h3>About Us</h3>
+                              <Br>
+                         </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-3"><a href="https://www.legali.city" target="_new"><img src="/static/images/legalicity_logo_lg.png" class="img-responsive center-block" style="max-width:250px;"></a><br class="hidden-sm hidden-md hidden-lg"></div>
+                        <div class="col-xs-12 col-sm-9" style="font-size:1.15em;">
+                            <p>NLPatent was developed by <b>Legalicity</b>, a Toronto-based legal technology startup. It was founded with the mission of bridging the gap between Artificial Intelligence research and legal practice. We continue to innovate and strive towards that goal, so feel free to reach out to us at <a href="mailto:info@legali.city">info@legali.city</a>.</p>
+
+                        </div>
+                         <!--<div class="col-xs-12 col-sm-6" style="font-size:1.15em;">
+                         	<div><a href="http://www.legalinnovationzone.ca/startup/legalicity/" target="_new"><img src="/static/images/liz_logo_lg.png" class="img-responsive center-block"  style="max-width:150px;"></a></div>
+
+                              <br>
+                              <p>Legalicity is based out of the Legal Innovation Zone (LIZ) at Ryerson University. LIZ is a co-working space and the first legal technology incubator with a focus on building better solutions for consumers of legal services.</p>
+                              <br>
+                         </div>-->
+                    </div>
+                    <hr>
+                    <div class="row">
+		               <!--  -->
+		               <div class="col-xs-8">
+		               	<img src="/static/images/nlp_footer_icon.png" class="img-fluid legal_footer_logo">
+		               	<div class="legal_footer_text"><p>© 2019 Legalicity Ltd. All rights reserved.
+							<!-- <br><a href="privacy.html" target="_new">Privacy Policy.</a>-->
+							</p></div>
+		               </div>
+		               <div class="col-xs-4 text-right">
+						   <p><b>Follow us on social media:</b><br>
+		               	<a href="https://twitter.com/legalicity?lang=en" target="_new"><img src="/static/images/twitter_icon.gif" class="img-responsive pull-right social-icon-footer"></a>
+		               	<a href="https://medium.com/@legalicity" target="_new"><img src="/static/images/medium_icon.gif" class="img-responsive pull-right social-icon-footer" style="margin-right:0;"></a>
+		               	</p>
+		               </div>
+		          </div>
+               </div>
+          </div>
+     </div>
+</body>
+</html>

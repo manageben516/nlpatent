@@ -1,0 +1,584 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Cache-Control" content="no-store" />
+    <!-- <base href="http://themythworks.com/clients/nlpatent/nlpatent_app_spa/" > -->
+    <base href="/" >
+    <title>NLPatent</title>
+    <meta name="description" content="">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='images/apple-touch-icon.png') }}">
+     <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/favicon-32x32.png') }}">
+     <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='images/favicon-16x16.png') }}">
+     <link rel="manifest" href="{{ url_for('static', filename='site.webmanifest') }}">
+     <link rel="mask-icon" href="{{ url_for('static', filename='safari-pinned-tab.svg') }}" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="theme-color" content="#ffffff">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/css/bootstrap.css') }}" rel="stylesheet">
+     <link href="{{ url_for('static', filename='assets/css/bootstrap_nlp_app_theme.css') }}" rel="stylesheet">
+    <script src="{{ url_for('static', filename='assets/js/jquery-1.11.2.min.js') }}"></script>
+     <script src="{{ url_for('static', filename='assets/js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/svg.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/velocity.min.js') }}"></script>
+     <script src="{{ url_for('static', filename='assets/js/velocity.ui.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/modernizr.js') }}"></script>
+</head>
+<body>
+
+<!-- headers - login, applicaton, profile -->
+<div class="container-header-holder application" id="header-application" style="display:block !important;background-image:url({{ url_for('static', filename='images/app_background.jpg') }}) !important;">
+    <div class="container-header">
+        <div class="container" style="position:relative;">
+            <div id="header-left">&nbsp;</div>
+            <div id="header-skew-login"></div>
+            <!-- ******************************************************* -->
+            <div class="row" id="row-header-logo" style="min-height:150px;">
+                 <div class="col-xs-12 col-sm-12">
+                    <img src="{{ url_for('static', filename='images/nlp_logo_sm.png') }}">
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-content" id="container-step1" style="min-height: 500px; display: block;">
+        <div class="container">
+
+            <!-- ******************************************************* -->
+            <div class="row">
+                <div class="col-xs-12">
+                    <br><br>
+                    <div class="subtitle">Order Form for <b>{{ organization }}</b></div>
+                    <hr>
+                    {% if num_months is defined %}
+                        <p>To activate NLPatent for your client organization, please submit this order form for the following <b>subscription plan</b>.</p>
+                        <br>
+                        <p>Cost: <b>${{ amount_dollars }} {{ currency }}</b></p>
+                        <p>Duration: <b>{{ num_months }} months</b></p>
+                        <p>Number of searches included: <b>{{ max_searches }}</b></p>
+                        <br>
+                        <p>This plan will expire on the earliest of the <b>expiration date</b> ({{ num_months }} months from activation) and the date on which all of the included <b>{{ max_searches }}</b> searches are used.</p>
+                        <p>This plan also includes <b>free</b> unlimited updates of results.</p>
+                        <p>The <b>Plan Information</b> page in your <b>Profile</b> will have your plan details and will display your current usage.</p>
+                        <p>To receive more detailed monthly <b>summaries</b> of usage, please inform the Legalicity team at <a href="mailto:stephanie@legali.city" target="_new">stephanie@legali.city</a> in advance.</p>
+                    {% else %}
+                        <p>To activate NLPatent for your client organization, please pay an activation fee of <b>$50 plus applicable taxes</b>.</p>
+                        <p>When your account is active, you will be invoiced <b>once a month</b> based on your usage of NLPatent during that month.</p>
+                        <p>The activation fee will be added to your <b>first month's </b> invoice.</p>
+                        <p>Payment must be made to Legalicity by <b>direct deposit</b> to the following bank account:</p>
+                        <br>
+                        <p><b>Legalicity Ltd.</b></p>
+                        <p>Transit Number: <b>{{ transit_number }}</b></p>
+                        <p>Financial Institution: <b>{{ fin_inst }}</b></p>
+                        <p>Account Number: <b>{{ account_number }}</b></p>
+                        <br>
+                        <p>Usage is calculated based on the number of <b>searches</b> and <b>updates</b> your users perform.</p>
+                        <p>The current pricing is <b>${{ per_search }} per search</b> and <b>${{ per_update }} per update</b>.</p>
+                        <p>For the most up-to-date pricing at any given time, please check the <b>Plan Information</b> page in your <b>Profile</b>.</p>
+                        <p>All the aforementioned amounts are in <b>{{ currency }}</b>.</p>
+                        <p>To deactivate your NLPatent account, please contact the Legalicity team at <a href="mailto:stephanie@legali.city" target="_new">stephanie@legali.city</a>.
+                        Once your account is deactivated, users in your client organization will no longer be able to access NLPatent, and you will be invoiced for any outstanding usage fees.</p>
+                        <p>To receive monthly <b>summaries</b> of usage, please inform the Legalicity team in advance.</p>
+                    {% endif %}
+                    <br>
+                    <div class="subtitle">Account Emails</div>
+                    <hr>
+                    <p>Please specify the email addresses of <b>up to 15</b> users at your client organization. This includes <b>up to 5 users with administrator status</b> and <b>up to 10 regular users</b>.</p>
+                    <p>You can modify this list at a later time by contacting the Legalicity team directly.</p>
+                    <p>Note that any <b>trial accounts</b> associated with the provided email addresses will be automatically <b>deleted</b>, including all stored data.</p>
+                    <br>
+                    <!-- ************************************************************************ -->
+                    <form id="emails" action="">
+                        <div class="row">
+                        <div class="col-xs-12 col-sm-6">
+                            <div class="subtitle">Administrators</div>
+                            <hr>
+                            <p>These users will be able to view the payment method, current usage, and a list of all the user accounts for your client organization.</p>
+
+                            <span id="keyelement-holder" class="administrator_emails">
+                                <div class="form-group">
+                                    <div class="keyelement-row flex-row top">
+                                        <div class="keyelement-row-field-holder">
+                                            <input type="text" class="form-control keyelement-field" id="administrator_1" name="administrator_1">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                        <div>
+                                            <div class="hex-button-small nlp-orange" id="duplicate-keyelement">
+                                                <button type="button" class="btn btn-primary"><div class="icon nlpapp-icon-plus"></div></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </span>
+                        </div>
+                        <div class="col-xs-12 col-sm-6">
+                            <div class="subtitle">Regular Users</div>
+                            <hr>
+                            <span id="keyelement-holder" class="regular_emails">
+                                <div class="form-group">
+                                    <div class="keyelement-row flex-row top">
+                                        <div class="keyelement-row-field-holder">
+                                            <input type="text" class="form-control keyelement-field" id="regular_1" name="regular_1">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                        <div>
+                                            <div class="hex-button-small nlp-orange" id="duplicate-keyelement">
+                                                <button type="button" class="btn btn-primary"><div class="icon nlpapp-icon-plus"></div></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </span>
+                        </div>
+                    </form>
+                    <!-- ************************************************************************ -->
+                    <div class="col-xs-12 text-xs-center">
+                        <hr>
+                        <br>
+                            <p>Please download and review the following Terms of Service and Privacy Policy.</p>
+                            <form id="nlpapp_order_agree">
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" id="nlpapp_agree"> &nbsp;I agree to the Terms of Service and Privacy Policy.
+                                        </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <script>
+                            $("#nlpapp_agree","#nlpapp_order_agree").change(function() {
+                                if(this.checked) {
+                                    $("#payment").prop('disabled', false);
+                                    $("#payment").parent().removeClass("disabled");
+                                } else {
+                                    $("#payment").prop('disabled', true);
+                                    $("#payment").parent().addClass("disabled");
+                                }
+                            });
+                            </script>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 text-xs-center text-sm-right">
+                        <form id="nlpapp_order_download_terms" action="https://www.nlpatent.com/downloadterms" method="post">
+                            <input type="hidden" value="{{ client_token }}" name="client_token">
+                            <div class="hex-button-small nlp-bluegray">
+                                <button type="submit" class="btn btn-primary">Terms of Service</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 text-xs-center text-sm-left">
+                        <form id="nlpapp_order_download_privacy" action="https://www.nlpatent.com/downloadprivacy" method="post">
+                            <input type="hidden" value="{{ client_token }}" name="client_token">
+                            <div class="hex-button-small nlp-bluegray">
+                                <button type="submit" class="btn btn-primary">Privacy Policy</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- ************************************************************************ -->
+                    <div class="col-xs-12 text-xs-center" id="form_col">
+                        <br>
+                        <hr>
+                        <form id="ordercharge_form" name="ordercharge_form">
+                            <!-- <script src="https://checkout.stripe.com/checkout.js"></script> -->
+                            <div class="hex-button nlp-orange disabled">
+                                <button type="submit" class="btn btn-primary" id="payment" disabled>SUBMIT ORDER</button>
+                            </div>
+                            <input type="hidden" id="client_token" name="client_token" value="{{ client_token }}">
+                            <div class="form-feedback" style="font-size:1.25em;"></div>
+                        </form>
+                    </div>
+                    <!-- ************************************************************************ -->
+                </div>
+
+                <style>
+                    form .help-block.with-errors{
+                        color:red !important;
+                    }
+                    </style>
+                <script language="javascript">
+                    $( document ).ready(function() {
+
+                        function nlpapp_paymentcomplete(data){
+                            $("#form_col").html("<br><hr><br><h4>Your NLPatent account is now active!<br><br>The users you listed should receive their login credentials by email shortly.</h4><br><br>");
+                            nlpapp_hide_loader_modal();
+                        }
+                        function submit_charge_form(){
+                            var form_data = ajaxSerializeForm("#ordercharge_form");
+                            ajaxCall("https://www.nlpatent.com/placeorder", "post", form_data, nlpapp_paymentcomplete, "#ordercharge_form");
+                        }
+
+                        // stripe button handlers
+                        document.getElementById('payment').addEventListener('click', function(e) {
+                            e.preventDefault();
+                            // validate form first
+                            validate_emails_form = nlpapp_validate_order_emails();
+                            if ( validate_emails_form === true ){
+                                $("input[name=admins]","#ordercharge_form").remove();
+                                $("input[name=regular]","#ordercharge_form").remove();
+                                // ---------------------------------------------------------------------------
+                                // add fields to form
+                                // ---------------------------------------------------------------------------
+                                // admin emails
+                                // ---------------------------------------------------------------------------
+                                var admin_mails_str = "";
+                                var num_admin_mails = $("[id^=administrator_]",".administrator_emails").length;
+                                for(x=1;x<=num_admin_mails;x++){
+                                    var temp_mail = $("#administrator_"+x,".administrator_emails").val();
+                                    if (temp_mail !== ""){
+                                        admin_mails_str = admin_mails_str + temp_mail + ",";
+                                    }
+                                }
+                                admin_mails_str = admin_mails_str.slice(0, -1);
+                                $('<input />').attr('type', 'hidden')
+                                .attr('name', "admins")
+                                .attr('value', admin_mails_str)
+                                .appendTo('#ordercharge_form');
+                                // ---------------------------------------------------------------------------
+                                // regular emails
+                                // ---------------------------------------------------------------------------
+                                var regular_mails_str = "";
+                                var num_regular_mails = $("[id^=regular_]",".regular_emails").length;
+                                for(x=1;x<=num_regular_mails;x++){
+                                    console.log("form add > regular " + x);
+                                    var temp_mail = $("#regular_"+x,".regular_emails").val();
+                                    if (temp_mail !== ""){
+                                        regular_mails_str = regular_mails_str + temp_mail + ",";
+                                    }
+                                }
+                                regular_mails_str = regular_mails_str.slice(0, -1);
+                                $('<input />').attr('type', 'hidden')
+                                .attr('name', "regular")
+                                .attr('value', regular_mails_str)
+                                .appendTo('#ordercharge_form');
+                                // ---------------------------------------------------------------------------
+                                // open stripe panel
+                                //handler.open();
+                                submit_charge_form();
+                                // ---------------------------------------------------------------------------
+                            }
+                            return false;
+
+                        });
+                        // Close Checkout on page navigation:
+                        //window.addEventListener('popstate', function() {
+                        //    handler.close();
+                        //});
+
+                        function nlpapp_hide_loader_modal(){
+                            if ( $('#nlpapp-loader').is(':visible') ){
+                                $('#nlpapp-loader').modal('hide');
+                            }
+                        }
+                        function nlpapp_show_loader_modal(message){
+                            if ( message == "" || !message ){
+                                message = "WORKING HARD... PLEASE WAIT";
+                            }
+                            $("#nlpapp-loader").find(".nlpapp-loader-message").text(message);
+                            if ( !$('#nlpapp-loader').is(':visible') ){
+                                $('#nlpapp-loader').modal('show');
+                            }
+                        }
+
+                        function ajaxSerializeForm(form){
+                            var form_data = $(form).serialize();
+                            return form_data;
+                        }
+                        // function for data posting and retrieval
+                        // ---------------------------------------------------------------
+                        function ajaxCall(url, type, data, setter, caller) {
+                            // hide form-feedback errors, if any
+                            $(".form-feedback", caller).removeClass("SUCCESS FIELDLEVEL_ERROR ERROR EXISTS FAIL DENIED MISSING PAYMENT_ERROR").text("").hide();
+                            nlpapp_show_loader_modal("Processing Your Order");
+                            // core AJAX objects
+                            // url = data of route to load
+                            // type = GET/POST
+                            // data = data to be sent, var or ""
+                            // setter = data setter function - sets data, or if callback is blank, handles the return route too
+                            // caller = caller object, expressly used to showing errors
+                                // application - errors are handled by the generic overlay error message
+                                // route
+                                // #object - transfers errors back to jquery object, for showing
+                            // callback = this is a passthrough function which once the setter succeeds is fired
+                                // - typically a view function for changing frontend
+
+                            $.ajax({
+                                url: url,
+                                type: type,
+                                data: data,
+                                //crossDomain: true,
+                                //xhrFields: { withCredentials: true },
+                                dataType: 'json',
+                                success: function(response_data) {
+                                    var success_msg = Object.keys(response_data)[0];
+                                    if ( success_msg === "PAYMENT_ERROR" || success_msg === "FIELDLEVEL_ERROR" || success_msg === "ERROR" || success_msg === "EXISTS" || success_msg === "FAIL" || success_msg === "DENIED" | success_msg === "PAYMENT_ERROR" ){
+                                        // show errors msgs in forms
+                                        if (success_msg == "FIELDLEVEL_ERROR"){
+                                            var fieldlevel_error_object = response_data[Object.keys(response_data)[0]];
+                                            var fieldlevel_error_num  = Object.keys(fieldlevel_error_object).length;
+                                            for (i=0;i<fieldlevel_error_num;i++){
+                                                $("#" + Object.keys(fieldlevel_error_object)[i]).siblings(".help-block").text( fieldlevel_error_object[Object.keys(fieldlevel_error_object)[i]] ).show();;
+                                            }
+                                            nlpapp_hide_loader_modal();
+                                        } else {
+                                            nlpapp_hide_loader_modal();
+                                            $(".form-feedback", caller).addClass(success_msg).text( response_data[Object.keys(response_data)[0]] ).show();
+                                            $(caller).siblings(".form-feedback").addClass(success_msg).text( response_data[Object.keys(response_data)[0]] ).show();
+                                            $(".nlpapp-error-message","#nlpapp-errormsg").html("<br>"+response_data[Object.keys(response_data)[0]]);
+                                            $("#nlpapp-errormsg").modal("show");
+                                        }
+                                    } else {
+                                        // complete setter - this will call setter and process data, then route to callback
+                                        setter(response_data);
+                                    }
+                                },
+                                error: function(response_data) {
+                                    nlpapp_hide_loader_modal();
+                                    $("#nlpapp-error-message","").html("<br>OOPS. AI / SERVER ERROR.<br>PLEASE TRY AGAIN.");
+                                    $("#nlpapp-errormsg").modal("show");
+                                }
+                            });
+                        }
+
+                        // ---------------------------------------------------------------
+                        // duplicate emails for order page
+                        // ---------------------------------------------------------------
+                        $( "#duplicate-keyelement",".administrator_emails").click(function() {
+                            var keyelement_num = $(".keyelement-row",".administrator_emails").length;
+                            if ( keyelement_num < 5){
+                                keyelement_id = keyelement_num + 1;
+                                $(".administrator_emails").append("<div class='form-group'><div class='keyelement-row flex-row top' id='keyelement-row-" + keyelement_id + "'><div class='keyelement-row-field-holder'><input type='text' class='form-control keyelement-field' id='administrator_" + keyelement_id +"' name='administrator_" + keyelement_id +"' value=''><div class='help-block with-errors'></div></div><div><div class='hex-button-small nlp-bluegray remove-keyelement'><button type='button' class='btn btn-primary'><div class='icon nlpapp-icon-minus'></div></button></div></div></div></div>");
+                            }
+                            if ( $(".keyelement-row",".administrator_emails").length == 5 ){
+                                $(this).addClass("disabled");
+                            }
+                        });
+                        $( "#duplicate-keyelement",".regular_emails").click(function() {
+                            var keyelement_num = $(".keyelement-row",".regular_emails").length;
+                            if ( keyelement_num < 10){
+                                keyelement_id = keyelement_num + 1;
+                                $(".regular_emails").append("<div class='form-group'><div class='keyelement-row flex-row top' id='keyelement-row-" + keyelement_id + "'><div class='keyelement-row-field-holder'><input type='text' class='form-control keyelement-field' id='regular_" + keyelement_id +"' name='regular_" + keyelement_id +"' value=''><div class='help-block with-errors'></div></div><div><div class='hex-button-small nlp-bluegray remove-keyelement'><button type='button' class='btn btn-primary'><div class='icon nlpapp-icon-minus'></div></button></div></div></div></div>");
+                            }
+                            if ( $(".keyelement-row",".regular_emails").length == 10 ){
+                                $(this).addClass("disabled");
+                            }
+                        });
+                        // remove regular email delegated click
+                        $(document.body).on("click", ".regular_emails .remove-keyelement", function(){
+                            $(this).parent().parent().remove();
+                            $("#duplicate-keyelement",".regular_emails ").removeClass("disabled");
+                            // $("#nlpapp_step_one_form").validator('update');
+                        });
+                        // remove administrator email delegated click
+                        $(document.body).on("click", ".administrator_emails .remove-keyelement", function(){
+                            $(this).parent().parent().remove();
+                            $("#duplicate-keyelement",".administrator_emails").removeClass("disabled");
+                            // $("#nlpapp_step_one_form").validator('update');
+                        });
+
+                        function nlpapp_validate_order_emails(){
+                            var order_emails_form_valid = true;
+                            var order_email_error = "Please enter a valid email.";
+                            email_regexp = new RegExp("(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])");
+
+                            // check administrator emails
+                            var admin_email_count = 0;
+                            var admin_email_number = $("[id^=administrator_]",".administrator_emails").length;
+                            for(i=1;i<=admin_email_number;i++){
+                                var element_value = $("#administrator_"+i,".administrator_emails").val();
+                                if ( element_value !== "" ){
+                                    // theyve entered a key element so we test it
+                                    if ( email_regexp.test(element_value) === false ){
+                                        order_emails_form_valid = false;
+                                        $("#administrator_"+i,".administrator_emails").siblings(".help-block").text(order_email_error).show();
+                                    } else {
+                                        $("#administrator_"+i,".administrator_emails").siblings(".help-block").text("").hide();
+                                        admin_email_count = admin_email_count + 1;
+                                    }
+                                }
+                            }
+                            if (admin_email_count<1){
+                                order_emails_form_valid = false;
+                                $("#administrator_1",".administrator_emails").siblings(".help-block").text("Please enter at least one valid Administrator email.").show();
+                            }
+                            // check regular emails
+                            var regular_email_number = $("[id^=regular_]",".regular_emails").length;
+                            for(i=1;i<=regular_email_number;i++){
+                                var element_value = $("#regular_"+i,".regular_emails").val();
+                                if ( element_value !== "" ){
+                                    // theve entered a key element so we test it
+                                    if ( email_regexp.test(element_value) === false ){
+                                        order_emails_form_valid = false;
+                                        $("#regular_"+i,".regular_emails").siblings(".help-block").text(order_email_error).show();
+                                    } else {
+                                        $("#regular_"+i,".regular_emails").siblings(".help-block").text("").hide();
+                                    }
+                                }
+                            }
+                            return order_emails_form_valid;
+                        }
+
+                        // utility functions
+
+                        // debounce delays firing of functions - typically used with resize events
+                        // ---------------------------------------------------------------
+                        function debounce(func, wait, immediate) {
+                             var timeout;
+                             return function() {
+                                  var context = this, args = arguments;
+                                  var later = function() {
+                                       timeout = null;
+                                       if (!immediate) func.apply(context, args);
+                                  };
+                                  var callNow = immediate && !timeout;
+                                  clearTimeout(timeout);
+                                  timeout = setTimeout(later, wait);
+                                  if (callNow) func.apply(context, args);
+                             };
+                        };
+                        // draws triangle skew in top of header
+                        // redraws with every resize
+                        // ---------------------------------------------------------------
+                        function resize_skew_div(){
+                            $("#header-skew-login").html("");
+                            var div_w = $("#header-skew-login").width();
+                            var div_h = $("#header-skew-login").height();
+                            //console.log("div_w:" + div_w +"  div_h:"+div_h);
+                            var header_svg = SVG("header-skew-login").size(div_w, div_h);
+                                header_svg.polygon("0,0 "+div_w+",0 0,"+div_h).fill("#fff").stroke({ width: 0 });
+                                //
+                        }
+                        window.addEventListener('resize', resize_skew_div);
+                        resize_skew_div();
+
+
+                        // loader animation
+                        // ---------------------------------------------------------------
+                        var animspeed = 150;
+                        var $loader_hexhead = $("#loader-hexhead");
+                        function loopanimation(loader_hexhead_id){
+                            loader_hexhead_id.velocity({ translateX:-14.286,translateY:24.666 }, { duration : animspeed, easing: "linear", complete: function() {
+                                loader_hexhead_id.velocity({ translateX:-42.857,translateY:24.666 }, { duration : animspeed, easing: "linear", complete: function() {
+                                    loader_hexhead_id.velocity({ translateX:-57.143,translateY:0 }, { duration : animspeed, easing: "linear", complete: function() {
+                                        loader_hexhead_id.velocity({ translateX:-85.714,translateY:0 }, { duration : animspeed, easing: "linear", complete: function() {
+                                            loader_hexhead_id.velocity({ translateX:-100,translateY:24.666 }, { duration : animspeed, easing: "linear", complete: function() {
+                                                loader_hexhead_id.velocity({ translateX:-85.714,translateY:49.333 }, { duration : animspeed, easing: "easlineareInOut", complete: function() {
+                                                    loader_hexhead_id.velocity({ translateX:-57.143,translateY:49.333 }, { duration : animspeed, easing: "linear", complete: function() {
+                                                        loader_hexhead_id.velocity({ translateX:-42.857,translateY:24.667 }, { duration : animspeed, easing: "linear", complete: function() {
+                                                            loader_hexhead_id.velocity({ translateX:-57.143,translateY:0 }, { duration : animspeed, easing: "linear", complete: function() {
+                                                                loader_hexhead_id.velocity({ translateX:-42.857,translateY:-24.667 }, { duration : animspeed, easing: "linear", complete: function() {
+                                                                    loader_hexhead_id.velocity({ translateX:-14.286,translateY:-24.667 }, { duration : animspeed, easing: "linear", complete: function() {
+                                                                        loader_hexhead_id.velocity({ translateX:0,translateY:0 }, { duration : animspeed, easing: "linear", complete: function(){
+                                                                            loopanimation(loader_hexhead_id)
+                                                                        }});
+                                                                    }});
+                                                                }});
+                                                            }});
+                                                        }});
+                                                    }});
+                                                }});
+                                            }});
+                                        }});
+                                    }});
+                                }});
+                            }});
+                        }
+                        var $loader_hexh1 = $("#loader-hexhead");
+                        loopanimation( $loader_hexh1 );
+
+
+                    });
+                </script>
+
+                </div>
+            </div>
+                <br><br><br>
+
+        </div>
+    </div>
+</div>
+
+<!-- footer - universal across application -->
+<div class="container-footer" style="display:block !important;">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+            © 2018 Legalicity Ltd. All rights reserved.
+            </div>
+        </div>
+    </div>
+</div>
+<!-- modals, loaders, errors -->
+<!-- loader -->
+<div class="modal " tabindex="-1" role="dialog" id="nlpapp-loader" aria-labelledby="Loading - Please Wait" data-backdrop="static" data-keyboard="false" style="z-index:1075;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="nlpapp-loader-svg">
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 156 130" style="enable-background:new 0 0 156 130;" xml:space="preserve">
+                <style type="text/css">
+                    .st1{fill:none;stroke:#4a5c68;stroke-width:6.6277;stroke-miterlimit:10;}
+                    .st2{fill:url(#SVGID_1_);}
+                    .st2a{fill:url(#SVGID_2_);}
+                    .st3{fill:#FFFFFF;}
+
+                </style>
+
+                <polygon class="st1" points="70.9,52.7 42.3,52.7 28,77.3 42.3,102 70.9,102 85.1,77.3 "/>
+                <polygon class="st1" points="113.7,28 85.1,28 70.9,52.7 85.1,77.3 113.7,77.3 128,52.7 "/>
+                <g>
+                    <radialGradient id="SVGID_1_" cx="128" cy="52.6667" r="26.5579" gradientUnits="userSpaceOnUse">
+                        <stop  offset="0" style="stop-color:#F8971E"/>
+                        <stop  offset="1" style="stop-color:#F8971E;stop-opacity:0"/>
+                    </radialGradient>
+                    <radialGradient id="SVGID_2_" cx="128" cy="52.6667" r="15" gradientUnits="userSpaceOnUse">
+                        <stop  offset="0" style="stop-color:#FFFFFF"/>
+                        <stop  offset="1" style="stop-color:#FFFFFF;stop-opacity:0"/>
+                    </radialGradient>
+
+
+                    <g id="loader-hexhead">
+                        <circle class="st2" cx="128" cy="52.7" r="26.6"/>
+                        <polygon class="st3" points="133.2,43.7 122.8,43.7 117.5,52.7 122.8,61.7 133.2,61.7 138.5,52.7  "/>
+                    </g>
+                </g>
+                </svg>
+            </div>
+            <div class="nlpapp-loader-message" id="">WORKING HARD... PLEASE WAIT</div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+<!-- error modal -->
+<div class="modal " tabindex="-1" role="dialog" id="nlpapp-errormsg" aria-labelledby="We have encountered an error" style="z-index:1100;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="top: -50px;">
+            <div class="nlpapp-error-svg">
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 180 156" style="enable-background:new 0 0 180 156;" xml:space="preserve">
+                <filter id="dropshadow" x="0" y="0" height="110%" width="110%">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="2" />
+                </filter>
+                <style type="text/css">
+                    .error_st{fill:#f7961d;opacity:0.75;}
+                    .error_st0{fill:#4A5C68;}
+                    .error_st1{fill:#FFFFFF;}
+                </style>
+                <polygon class="error_st" style="filter:url(#dropshadow)" points="73.3,107 56.5,78 73.3,49 106.7,49 123.5,78 106.7,107 "/>
+                <polygon class="error_st0" points="105,52 90,52 75,52 67.5,65 60,78 67.5,91 75,104 90,104 105,104 112.5,91 120,78 112.5,65 "/>
+                <g>
+                    <path class="error_st1" d="M90,89.2c1.7,0,3.1,1.4,3.1,3.3c0,1.9-1.4,3.2-3.1,3.2c-1.7,0-3.1-1.4-3.1-3.2C86.9,90.5,88.3,89.2,90,89.2z
+                         M88,65.2l-0.1-4.9h4.3l-0.1,4.9l-0.6,19.7h-3L88,65.2z"/>
+                </g>
+                </svg>
+            </div>
+            <div class="nlpapp-error-message"><br>SOMETHING WENT WRONG!<br>PLEASE TRY AGAIN.</div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+
+
+
+</body>
+<html>

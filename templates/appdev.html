@@ -1,0 +1,1744 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Cache-Control" content="no-store" />
+    <base href="/app" >
+    <title>NLPatent</title>
+    <meta name="description" content="">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='images/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='images/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='site.webmanifest') }}">
+    <link rel="mask-icon" href="{{ url_for('static', filename='images/safari-pinned-tab.svg') }}" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="theme-color" content="#ffffff">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/css/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/css/bootstrap_nlp_app_theme.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/css/jquery-ui.css') }}" rel="stylesheet" type="text/css" />
+    <script src="{{ url_for('static', filename='assets/js/jquery-1.11.2.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/navigo.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/nlp_app_development.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/svg.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/jquery.multiselect.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/jquery-ui.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/velocity.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/velocity.ui.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/modernizr.js') }}"></script>
+</head>
+<body>
+
+<!-- headers - login, applicaton, profile -->
+<div class="container-header-holder login" id="header-login" style="display:none;">
+    <div class="container-header">
+        <div class="container" style="position:relative;">
+            <div id="header-left">&nbsp;</div>
+            <div id="header-skew-login"></div>
+            <!-- ******************************************************* -->
+            <div class="row" id="row-header-logo" style="min-height:150px;">
+                 <div class="col-xs-12 col-sm-12">
+                    <img src="{{ url_for('static', filename='images/nlp_logo_sm.png') }}" class="img-responsive">
+                </div>
+            </div>
+            <!-- ******************************************************* -->
+
+            <div class="row" style="color:#fff;">
+                <div class="col-xs-12 col-sm-3 col-md-4">
+
+                </div>
+                <div class="col-xs-12 col-sm-9 col-md-8">
+                    <div class="hidden-sm hidden-md hidden-lg"><br><br></div>
+                    <br><br>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-6">
+                            <div class="subtitle">Existing User</div>
+                            <hr>
+                            <form id="nlpapp_login" class="form-horizontal">
+                                <div class="form-group" style="display: flex;align-items: center;">
+                                    <label for="inputEmail3" class="col-xs-3 col-sm-4 control-label">Email</label>
+                                    <div class="col-xs-9 col-sm-8 col-field">
+                                      <input type="text" class="form-control" id="email" name="email" placeholder="Email" autocomplete="off">
+                                      <div class="help-block with-errors"></div>
+                                    </div>
+
+                                </div>
+                                <div class="form-group" style="display: flex;align-items: center;">
+                                    <label for="inputEmail3" class="col-xs-3 col-sm-4 control-label">Password</label>
+                                    <div class="col-xs-9 col-sm-8 col-field">
+                                      <input type="password" class="form-control" id="password" name="password" placeholder="Password" autocomplete="off">
+                                      <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-12 text-xs-right col-field">
+                                        <a href="#nlpapp_forgotpassword_modal" style="color:#fff;font-size:.9em;" data-toggle="modal" data-target="#nlpapp_forgotpassword_modal">Forgot Password?</a>
+                                    </div>
+                                    <br><br>
+                                </div>
+                                <div class="form-feedback"></div>
+                                <div class="form-group text-xs-right">
+                                    <div class="hex-button nlp-orange">
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6" id="nlpapp_login_signup_div">
+                            <div class="subtitle">New User</div>
+                            <hr>
+                            <br>
+                            <p>Contact us to request a free trial of NLPatent. Our team will reach out to you with a few simple questions about your patent needs. You can then test out NLPatent at <b>no cost</b>.</p>
+                            <br>
+                            <center>
+                                <div class="hex-button nlp-orange">
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#nlpapp_signup_modal">Request a free trial</button>
+                                </div>
+                            </center>
+                            <br>
+                            <div class="form-feedback" style="text-align:center;"></div>
+                        </div>
+                    </div>
+                <br><br><br>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-header-holder create" id="header-create" style="display:none;">
+    <div class="container-header">
+        <div class="container" style="position:relative;">
+            <div id="header-left">&nbsp;</div>
+            <div id="header-skew-create"></div>
+            <!-- ******************************************************* -->
+            <div class="row" id="row-header-logo">
+                <div class="col-xs-6 col-sm-12" id="header_logo">
+                    <img src="{{ url_for('static', filename='images/nlp_logo_sm.png') }}" class="img-responsive">
+                </div>
+                <div id="row-header-buttons" class="col-xs-12 col-sm-12 text-xs-right">
+                    <div class="row-header-welcome">Welcome back, Inventor 999</div>
+
+                    <div class="hex-button nlp-orange hidden-xs">
+                        <button type="submit" class="btn btn-primary" onClick="location.href='#profile_edit_profile';">Profile</button>
+                    </div>
+                    <div class="hex-button-small nlp-orange hidden-sm hidden-md hidden-lg hidden-xl">
+                        <button type="submit" class="btn btn-primary" onClick="location.href='#profile_edit_profile';">Profile</button>
+                    </div>
+                    <!-- <div class="hidden-sm hidden-md hidden-lg hidden-xl"><br></div> -->
+                    <div class="hex-button nlp-orange hidden-xs">
+                        <button type="submit" class="btn btn-primary" onClick="location.href='#logout';">Logout</button>
+                    </div>
+                    <div class="hex-button-small nlp-orange hidden-sm hidden-md hidden-lg hidden-xl">
+                        <button type="submit" class="btn btn-primary" onClick="location.href='#logout';">Logout</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ******************************************************* -->
+            <div class="row" id="row-project-widget-create" style="color:#fff;">
+                <div id="project-select-create">
+                    <br>
+                    <div class="col-xs-12">
+                    <div class="subtitle">Create a New Project</div>
+                    <hr>
+                        <form id="nlpapp_new_project_create" class="form-inline flex-row top">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Enter Project Name" style="margin-top:0;min-width:200px;width:50%;" maxlength="140" id="project_name_create" name="project_name_create" >
+                                <div class="help-block with-errors"></div>
+                            </div>
+                            <div class="form-group">
+                                <div class="hex-button nlp-orange" style="margin-left:2em;">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="form-feedback" style="max-width:347px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-header-holder application" id="header-application" style="display:none;">
+    <div class="container-header">
+        <div class="container" style="position:relative;">
+            <div id="header-left">&nbsp;</div>
+            <div id="header-skew-application"></div>
+            <!-- ******************************************************* -->
+            <div class="row" id="row-header-logo">
+                <div class="col-xs-6 col-sm-12" id="header_logo">
+                    <img src="{{ url_for('static', filename='images/nlp_logo_sm.png') }}" class="img-responsive">
+                </div>
+                <div id="row-header-buttons" class="col-xs-12 col-sm-12 text-xs-right">
+                    <div class="row-header-welcome">Welcome back, Inventor 999</div>
+
+                    <div class="hex-button nlp-orange hidden-xs">
+                        <button type="submit" class="btn btn-primary" onClick="location.href='#profile_edit_profile';">Profile</button>
+                    </div>
+                    <div class="hex-button-small nlp-orange hidden-sm hidden-md hidden-lg hidden-xl">
+                        <button type="submit" class="btn btn-primary" onClick="location.href='#profile_edit_profile';">Profile</button>
+                    </div>
+                    <!-- <div class="hidden-sm hidden-md hidden-lg hidden-xl"><br></div> -->
+                    <div class="hex-button nlp-orange hidden-xs">
+                        <button type="submit" class="btn btn-primary" onClick="location.href='#logout';">Logout</button>
+                    </div>
+                    <div class="hex-button-small nlp-orange hidden-sm hidden-md hidden-lg hidden-xl">
+                        <button type="submit" class="btn btn-primary" onClick="location.href='#logout';">Logout</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ******************************************************* -->
+            <div class="row" id="row-project-widget" style="color:#fff;">
+                <div class="project-select-saved">
+                    <div class="header-current-project-header">CURRENT PROJECT</div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-8">
+                            <div class="col-xs-12 col-sm-12" style="padding-left:0;padding-right:0;">
+                                <div class="header-current-project-title"></div>
+                                <div class="header-current-project-date"></div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-4 text-xs-right" id="project-select-buttons">
+                            <div class="hex-button-small nlp-orange">
+                                <button type="submit" class="btn btn-primary" id="nlpapp_changeproject">Change project</button>
+                            </div>
+                            <div class="hex-button-small nlp-orange" style="display:none;">
+                                <button type="submit" class="btn btn-primary" id="nlpapp_cancelchangeproject">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="project-select">
+                    <br>
+                    <div class="project-select-saved">
+                        <div class="subtitle">Select a Saved Project</div>
+                        <hr>
+                        <div class="project-select-holder"></div>
+                        <div class="form-feedback"></div>
+                        <div class="button-row right">
+                            <div class="hex-button nlp-orange disabled">
+                                <button type="button" class="btn btn-primary" id="nlpapp_changeselectedproject">change project</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="subtitle">Create a New Project</div>
+                    <hr>
+                        <form id="nlpapp_new_project" class="form-inline flex-row top">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Enter Project Name" style="margin-top:0;min-width:200px;width:50%;" maxlength="140" id="project_name" name="project_name" >
+                                <div class="help-block with-errors"></div>
+                            </div>
+                            <div class="form-group">
+                                <div class="hex-button nlp-orange" style="margin-left:2em;">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="form-feedback" style="max-width:347px;"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-header-holder profile" id="header-profile" style="display:none;">
+    <div class="container-header">
+        <div class="container" style="position:relative;">
+            <div id="header-left">&nbsp;</div>
+            <div id="header-skew-profile"></div>
+            <!-- ******************************************************* -->
+            <div class="row" id="row-header-logo">
+                 <div class="col-xs-6 col-sm-12" id="header_logo">
+                    <img src="{{ url_for('static', filename='images/nlp_logo_sm.png') }}" class="img-responsive">
+                </div>
+                <div id="row-header-buttons" class="col-xs-12 col-sm-12 text-xs-right">
+                    <div class="row-header-welcome">Welcome back, Inventor 999</div>
+
+                    <div class="hex-button nlp-orange hidden-xs">
+                        <button type="submit" class="btn btn-primary" onClick="location.href='#step1';">Back to Main</button>
+                    </div>
+                    <div class="hex-button-small nlp-orange hidden-sm hidden-md hidden-lg hidden-xl">
+                        <button type="submit" class="btn btn-primary" onClick="location.href='#step1';">Back to Main</button>
+                    </div>
+                    <!-- <div class="hidden-sm hidden-md hidden-lg hidden-xl"><br></div> -->
+                    <div class="hex-button nlp-orange hidden-xs">
+                        <button type="submit" class="btn btn-primary" onClick="location.href='#logout';">Logout</button>
+                    </div>
+                    <div class="hex-button-small nlp-orange hidden-sm hidden-md hidden-lg hidden-xl">
+                        <button type="submit" class="btn btn-primary" onClick="location.href='#logout';">Logout</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin:1em 0;color:#fff;">
+                <div class="col-xs-12">
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- body containers - application and profile -->
+<div class="container-body application" id="body-application" style="display:none;">
+    <div id="container-nav" class="container container-nav-large svg">
+         <div class="row" id="row-nav">
+            <ul class="nav nav-tabs">
+                <li role="presentation" class="nav-step" id="nav-step1" data-title="Step 1: Description" style="display:none;"><a href="step1" data-navigo>Description</a></li>
+                <li role="presentation" class="nav-step" id="nav-step2" data-title="Step 2: Technology" style="display:none;"><a href="step2" data-navigo>Technology</a></li>
+                <li role="presentation" class="nav-step" id="nav-step3" data-title="Step 3: Prior Art" style="display:none;"><a href="step3" data-navigo>Prior Art</a></li>
+                <li role="presentation" class="nav-step" id="nav-step4" data-title="Step 4: Prediction" style="display:none;"><a href="step4" data-navigo>Prediction</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- mobile nav -->
+    <div id="container-nav" class="container container-nav-mobile">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header row">
+                        <div class="col-xs-12">
+                            <div class="mobile-title">Step 1 : Description</div>
+                            <div class="mobile-toggle-holder" class="text-xs-right">
+                                <div class="hex-button-small nlp-orange" style="min-width:1px;">
+                                    <button type="button" class="navbar-toggle collapsed btn" data-toggle="collapse" data-target="#navbar-application" aria-expanded="false" aria-controls="navbar"><div class="icon nlpapp-icon-hamburger"></div></button>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                <div id="navbar-application" class="row navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="nav-step" id="mobilenav-step1" data-title="Step 1: Description" style="display:none;"><a href="step1" data-navigo data-toggle="collapse">Step 1: Description</a></li>
+                        <li class="nav-step" id="mobilenav-step2" data-title="Step 2: Technology" style="display:none;"><a href="step2" data-navigo>Step 2: Technology</a></li>
+                        <li class="nav-step" id="mobilenav-step3" data-title="Step 3: Prior Art" style="display:none;"><a href="step3" data-navigo>Step 3: Prior Art</a></li>
+                        <li class="nav-step" id="mobilenav-step4" data-title="Step 4: Prediction" style="display:none;"><a href="step4" data-navigo>Step 4: Prediction</a></li>
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div><!--/.container-fluid -->
+        </nav>
+    </div>
+
+    <!-- step 1 -->
+    <div class="container-content" id="container-step1" style="min-height:500px;display:block;">
+        <div class="container">
+            <div class="row">
+
+                <div id="step1_locked" class="text-xs-center" style="display:none;">
+                    <div class="hidden-xs col-xs-12"><br><br></div>
+                    <div class="col-xs-12">
+                        <br><br>
+                        <p>For security reasons, please enter your password again to access the invention description.</p>
+                        <br>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3">
+
+                        <form id="nlpapp_step1_unlock" name="nlpapp_step1_unlock" class="form-horizontal">
+                            <div class="form-group flex-row middle required">
+                                <label for="signup_name" class="col-xs-3 col-sm-4 control-label text-xs-left text-sm-right">Your Password</label>
+                                <div class="col-xs-9 col-sm-8 col-field">
+                                    <input type="password" class="form-control" id="unlock_password" name="unlock_password" autocomplete="off" required="" data-error="Please enter your password.">
+
+                                </div>
+
+                            </div>
+                            <div class="help-block with-errors"></div>
+                            <div class="form-feedback"></div>
+                            <div class="button-row right">
+                                <div class="hex-button nlp-orange">
+                                    <button type="submit" class="btn btn-primary">Unlock Description</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+
+                <div id="step1_unlocked" style="display:none;">
+
+                    <div class="col-xs-12">
+                        <div class="hidden-xs"><br><br></div>
+                    </div>
+                    <br>
+
+                    <div class="col-xs-12">
+                        <form id="nlpapp_step_one_form" action="">
+                            <div class="form-group required">
+                                <div class="flex-row middle">
+                                    <div>
+                                        <div class="hex-button-helper">
+                                            <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="A paragraph description, e.g. an Abstract or a set of Claims.">?</button>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label for="description" style="margin-bottom:0;">Enter Text</label>
+                                    </div>
+                                </div>
+                                <textarea class="form-control" id="description" name="description" rows="10" minlength="150" maxlength="7500" style="resize:vertical;"></textarea>
+                                <div class="help-block with-errors"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="flex-row middle">
+                                    <div>
+                                        <div class="hex-button-helper">
+                                            <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="The effective filing date.">?</button>
+                                            </div>
+                                    </div>
+                                    <div>
+                                        <label for="exampleInputEmail1" style="margin-bottom:0;">Set Priority Date</label>
+                                    </div>
+                                </div>
+                                <p class="help-block-static"><i>Optional. You will not see any results after this date. Format is YYYY-MM-DD.</i></p>
+                                <div style="position:relative;max-width: 180px;"><div class="icon nlpapp-icon-calendar nlpapp-datepicker-icon" style="position: absolute;right: 10px;top: 10px;font-size: 21px;color: #88a3b5;pointer-events: none;"></div><input type="text" class="form-control" id="priority_date" autocomplete="off" value="" style="background:#fff !important;margin-top:0;"></div>
+                            </div>
+
+                                <div class="form-group" style="margin-bottom:0;">
+                                    <div class="flex-row middle">
+                                        <div>
+                                            <div class="hex-button-helper">
+                                                <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Relevant prior art you are already aware of.">?</button>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <label for="exampleInputEmail1" style="margin-bottom:0;">Add Known Prior Art</label>
+                                        </div>
+                                    </div>
+                                    <p class="help-block-static"><i>Optional. Enter up to twenty (20) USPTO publication numbers. Format is US1234567 or US20190123456.</i></p>
+                                </div>
+                                <div class="knownart-holder">
+                                <div class="form-group"">
+                                    <div class="knownart-row flex-row top">
+                                        <div class="knownart-row-field-holder">
+                                            <input type="text" class="form-control knownart-field" id="patent_1" name="patent_1" style="margin-top:.25em;margin-bottom:.25em;">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                        <div>
+                                            <div class="hex-button-small nlp-orange" id="duplicate-knownart" style="margin-top:.25em;margin-bottom:.25em;">
+                                                <button type="button" class="btn btn-primary"><div class="icon nlpapp-icon-plus"></div></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="hidden" name="cpc_section" id="cpc_section" value="1">
+                            <br style="clear:both;">
+                           <div class="form-feedback"></div>
+                            <div class="button-row right">
+                                <div class="hex-button-helper">
+                                    <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Process the input. This registers as one (1) search.">?</button>
+                                </div>
+                                <div class="hex-button nlp-orange">
+                                    <button type="submit" class="btn btn-primary">proceed to next step</button>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+        </div>
+    </div>
+
+    <!-- step 2 -->
+    <div class="container-content" id="container-step2" style="min-height:500px;display:none;">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="hidden-xs"><br><br></div>
+                    <div class="subtitle">Categorize your invention according to the CPC classification system. Learn more about the CPC <a href="https://worldwide.espacenet.com/classification?locale=en_EP" target="_blank">here</a>.</div>
+                    <br>
+                    <br>
+                    <p>Start by choosing <b>one (1)</b> of the following technology areas. Doing this will help focus your search and produce better results.</p>
+
+                    <form id="nlpapp_step_two_form" name="nlpapp_step_two_form" action="">
+                        <table class="table" id="nlpapp-technologyclasses-table">
+                            <thead>
+                                <tr>
+                                    <th width="150px">CPC Sections</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr id="technologyarea_A">
+                                    <td scope="row"><div class="checkbox"><label><input type="checkbox" value="A" name="technologyarea_select"><span class="cr"><div class="icon nlpapp-icon-check"></div></span>A | Human Necessities</label>&nbsp;&nbsp;<div class="hex-button-helper dark"><button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Search for prior art. This incurs a payment for a SEARCH.">?</button></div></div></td>
+                                </tr>
+                                <tr id="technologyarea_B">
+                                    <td scope="row"><div class="checkbox"><label><input type="checkbox" value="B" name="technologyarea_select"><span class="cr"><div class="icon nlpapp-icon-check"></div></span>B | Operations; Transporting</label>&nbsp;&nbsp;<div class="hex-button-helper dark"><button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Search for prior art. This incurs a payment for a SEARCH.">?</button></div></div></td>
+                                </tr>
+                                <tr id="technologyarea_C">
+                                    <td scope="row"><div class="checkbox"><label><input type="checkbox" value="C" name="technologyarea_select"><span class="cr"><div class="icon nlpapp-icon-check"></div></span>C | Chemistry; Metallurgy</label>&nbsp;&nbsp;<div class="hex-button-helper dark"><button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Search for prior art. This incurs a payment for a SEARCH.">?</button></div></div></td>
+                                </tr>
+                                <tr id="technologyarea_D">
+                                    <td scope="row"><div class="checkbox"><label><input type="checkbox" value="D" name="technologyarea_select"><span class="cr"><div class="icon nlpapp-icon-check"></div></span>D | Textiles; Paper</label>&nbsp;&nbsp;<div class="hex-button-helper dark"><button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Search for prior art. This incurs a payment for a SEARCH.">?</button></div></div></td>
+                                </tr>
+                                <tr id="technologyarea_E">
+                                    <td scope="row"><div class="checkbox"><label><input type="checkbox" value="E" name="technologyarea_select"><span class="cr"><div class="icon nlpapp-icon-check"></div></span>E | Fixed Constructions</label>&nbsp;&nbsp;<div class="hex-button-helper dark"><button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Search for prior art. This incurs a payment for a SEARCH.">?</button></div></div></td>
+                                </tr>
+                                <tr id="technologyarea_F">
+                                    <td scope="row"><div class="checkbox"><label><input type="checkbox" value="F" name="technologyarea_select"><span class="cr"><div class="icon nlpapp-icon-check"></div></span>F | Mechanical Engineering; Lighting; Heating; Weapons; Blasting</label>&nbsp;&nbsp;<div class="hex-button-helper dark"><button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Search for prior art. This incurs a payment for a SEARCH.">?</button></div></div></td>
+                                </tr>
+                                <tr id="technologyarea_G">
+                                    <td scope="row"><div class="checkbox"><label><input type="checkbox" value="G" name="technologyarea_select"><span class="cr"><div class="icon nlpapp-icon-check"></div></span>G | Physics</label>&nbsp;&nbsp;<div class="hex-button-helper dark"><button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Search for prior art. This incurs a payment for a SEARCH.">?</button></div></div></td>
+                                </tr>
+                                <tr id="technologyarea_H">
+                                    <td scope="row"><div class="checkbox"><label><input type="checkbox" value="H" name="technologyarea_select"><span class="cr"><div class="icon nlpapp-icon-check"></div></span>H | Electricity</label>&nbsp;&nbsp;<div class="hex-button-helper dark"><button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Search for prior art. This incurs a payment for a SEARCH.">?</button></div></div></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br>
+                        <p>Return to this menu any time to try a different technology area.</p>
+                        <div class="form-feedback" class="text-xs-right"></div>
+                        <div class="button-row right">
+                            <div class="hex-button-arrow right nlp-bluegray disabled">
+                                <button type="submit" class="btn btn-primary">Proceed to Classes</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+            <br><br>
+        </div>
+    </div>
+
+    <!-- step 2a -->
+    <div class="container-content" id="container-step2a" style="min-height:500px;display:none;">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="hidden-xs"><br><br></div>
+                    <div class="subtitle">Your Selected CPC Section:</div>
+                    <hr>
+                    <h4 class="nlpapp_project_cpc_section nlp-bluegray" style="margin-left:30px;"></h4>
+                    <br>
+                    <div class="subtitle">CPC Classes</div>
+                    <br>
+                    <p>Choose one or more of the following recommended classes, ordered by likelihood.</p>
+
+                    <form id="nlpapp_step_twoa_form" name="nlpapp_step_twoa_form" action="">
+                        <table class="table" id="nlpapp-cpcclasses-table">
+                            <thead>
+                                <tr>
+                                    <th width="90px">CPC Class</th>
+                                    <th width="98px">Likely Match</th>
+                                    <th width="*">Title</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                        <div class="form-feedback" class="text-xs-right"></div>
+                        <div class="button-row right">
+                            <div class="hex-button-arrow left nlp-bluegray" style="float:left;">
+                                <button type="button" class="btn btn-primary" id="back_step2">Back to Sections</button>
+                            </div>
+                            <div class="hex-button-arrow right nlp-bluegray disabled">
+                                <button type="submit" class="btn btn-primary">Proceed to Subclasses</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+            <br><br>
+        </div>
+    </div>
+
+    <!-- step 2b -->
+    <div class="container-content" id="container-step2b" style="min-height:500px;display:none;">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="hidden-xs"><br><br></div>
+                    <div class="subtitle">Your Selected CPC Section and Classes:</div>
+                    <hr>
+                    <h4 class="nlpapp_project_cpc_section nlp-bluegray" style="margin-left:30px;">A | Human Necessities</h4>
+                    <h5 class="nlpapp_project_cpc_class nlp-bluegray" style="margin-left:50px;">
+                    </h5>
+                    <br>
+
+                    <div class="subtitle">CPC Subclasses</div>
+                    <br>
+                    <p>Choose a <b>maximum of five (5)</b> of the following recommended subclasses, ordered by likelihood.</p>
+
+                    <form id="nlpapp_step_twob_form" name="nlpapp_step_twob_form" action="">
+                    <table class="table" id="nlpapp-cpcsubclasses-table">
+                        <thead>
+                            <tr>
+                                <th width="90px">CPC Subclass</th>
+                                <th width="98px">Likely Match</th>
+                                <th width="*">Title</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                    <div class="form-feedback" class="text-xs-right"></div>
+                    <div class="button-row left" style="width:40%;float:left;">
+                        <div class="hex-button-arrow left nlp-bluegray">
+                            <button type="button" class="btn btn-primary navigate_step2a">Back to Classes</button>
+                        </div>
+                    </div>
+                    <div class="button-row right" style="width:60%;float:left;">
+                        <div class="hex-button-helper">
+                            <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Search for prior art. This incurs a payment for a SEARCH.">?</button>
+                        </div>
+                        <div class="hex-button nlp-orange disabled">
+                            <button type="submit" class="btn btn-primary navigate_step3">Proceed to Next Step</button>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+            <br><br>
+        </div>
+    </div>
+
+    <!-- step 3 -->
+    <div class="container-content" id="container-step3" style="min-height:500px;display:none;">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="hidden-xs"><br><br></div>
+
+                    <div class="legal-disclaimer">
+                        THIS IS NOT LEGAL ADVICE : These prior art results are entirely computer-generated, using Artificial Intelligence. They have not been considered for relevance by a human. As such, Legalicity provides no warranty and makes no claims regarding the accuracy, completeness, reliability, and overall quality of the content. These results do not constitute legal or professional advice, and Legalicity shall not be liable for any loss or damage arising out of, or in connection with, any reliance on the contents of these results.
+                    </div>
+                    <br>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-6" id="nlpapp-priorart-found-col">
+
+                    <div class="subtitle">Prior Art Found&nbsp;
+                        <div class="hex-button-helper">
+                            <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="USPTO issued patents & published applications from 1976-2017.">?</button>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="flex-row top" style="margin:1em 0 0 0;display:none;height:38px;" id="nlpapp_stepthree_filters_widget_row">
+                        <div style="width:100%;">
+                            <div class="hex-button-small nlp-bluegray" style="margin-right:2em;">
+                                <button type="submit" class="btn btn-primary" id="nlpapp_showfilters">Show Filters</button>
+                            </div>
+                            <div class="hex-button-small nlp-bluegray" style="margin-right:2em;display:none;">
+                                <button type="submit" class="btn btn-primary" id="nlpapp_hidefilters">Hide Filters</button>
+                            </div>
+
+                            <div class="hex-button-small nlp-bluegray" style="min-width:30px;float:right">
+                                <button type="button" class="btn btn-primary btn-icon" id="nlpapp-download-analysis-results" data-toggle="tooltip" data-placement="top" title="" data-original-title="Download these results as a Word file."><div class="icon nlpapp-download"></div></button>
+                            </div>
+                            <form id="nlpapp-download-analysis-results-hidden" action="/downloadresults" style="margin-top:0;" method="get"></form>
+
+                        </div>
+                        
+                    </div>
+                   
+                        <div id="nlpapp-filters-notification" style="display:none;margin-top:5px;"></div>
+                    
+                    <!-- filters -->
+
+                    <div id="nlpapp-filters">
+
+                        <div class="subtitle">Filters</div>
+                        <form class="form" id="nlpapp-filters-form" name="nlpapp-filters-form">
+
+                        </form>
+                        <div class="button-row right" style="margin:.5em 0;">
+                            <div class="hex-button-small nlp-bluegray">
+                                <button type="button" class="btn btn-primary" id="nlpapp-filters-clear">Clear Filters</button>
+                            </div>
+                            <div class="hex-button-small nlp-orange">
+                                <button type="button" class="btn btn-primary" id="nlpapp-filters-apply">Apply Filters</button>
+                            </div>
+                        </div>
+                      
+                        
+                    </div>
+
+                    <!-- pagination -->
+                    <div class="filters-pagination-label" style="display:none;height:38px;text-align: center;padding-top:5px;"></div>
+                    <div class="flex-row top" style="height:38px;margin-top:5px;" id="nlpapp_stepthree_pagination_row">
+                        <div style="margin: 0 auto;">
+                            <div style="float:"
+                            <div class="hex-button-small nlp-orange" id="pagination_prev">
+                                <button type="button" class="btn btn-primary" value="">&nbsp;</button>
+                            </div>
+                            <div class="pagination-label" style="height:38px;display:inline-block;"></div>
+                            <div class="hex-button-small nlp-orange" id="pagination_next">
+                                <button type="button" class="btn btn-primary" value="">&nbsp;</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- end filters -->
+                    <table class="table" id="prior-art-results-table" style="margin-top:6px;">
+                        <thead>
+                            <tr>
+                                <th colspan="3" id="prior-art-results-table-title">Top Results</th>
+                                <th style="text-align:right !important;">CPC</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="empty-row-message"><td scope="row" colspan="4" align="center"><br>There are no further Prior Art results to show.<br><br></td></tr>
+                        </tbody>
+                    </table>
+
+                    <form style="margin-top:10px !important;">
+                        <div class="flex-row top">
+                            <div style="margin:0 auto;display:table;width:100%;">
+                                <div id="nlpapp-update-results-holder" style="display:none;width:50%;text-align:right;">
+                                    
+                                        <div class="hex-button-small nlp-orange">
+                                            <button type="button" class="btn btn-primary" id="nlpapp-update-results" data-toggle="tooltip" data-placement="bottom" title="Refine your results based on prior art you saved and deleted.">REFINE</button>
+                                        </div>
+                                    
+                                    <!-- <div style="display:table-cell;">
+                                        <div class="hex-button-helper dark">
+                                            <button type="button" class="btn btn-primary">?</button>
+                                        </div>
+                                    </div> -->
+                                    <div id="updated_results"></div>
+                                    <div class="help-block with-errors" style="width:75%;margin-left:auto;"></div>
+                                </div>
+                            <!-- <div style="width:100%;height:10px;"></div> -->
+                                <div id="nlpapp-clearupdated-results-holder" style="display:none;width:50%;text-align:left;">
+                                    
+                                        <div class="hex-button-small nlp-orange">
+                                            <button type="button" class="btn btn-primary" id="nlpapp-clearupdated-results" data-toggle="tooltip" data-placement="bottom" title="Return to the first page of your original results.">RESET</button>
+                                        </div>
+                                    
+                                    <!-- <div style="display:table-cell;">
+                                        <div class="hex-button-helper dark">
+                                            <button type="button" class="btn btn-primary">?</button>
+                                        </div>
+                                    </div> -->
+                                    <div id="original_results"></div>
+                                    <div class="help-block with-errors"style="width:75%;margin-right:auto;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div class="hidden-sm hidden-md hidden-lg"><br><br></div>
+                </div>
+                <div class="col-xs-12 col-sm-6" id="nlpapp-priorart-saved-col">
+                    <div class="subtitle">Saved Prior Art&nbsp;
+                        <div class="hex-button-helper">
+                            <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Prior art you saved for this project.">?</button>
+                        </div>
+                    </div>
+                    <hr>
+                    <!-- <div class="flex-row middle" style="padding:1em 0;">
+                        <div>
+                            <div class="hex-button-small nlp-orange">
+                                <button type="button" class="btn btn-primary" id="nlpapp-update-results">Update Results</button>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="hex-button-helper">
+                                <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Brief tooltip describing what the user needs to know.">?</button>
+                            </div>
+                        </div>
+                    </div> -->
+                    <form style="margin-top:0;height: 76px;">
+                        <div id="nlpapp-analysis-save" class="button row text-xs-right">
+
+                            <div class="form-group addsavedpriorart_group" style="margin-left:15px;margin-bottom:0;">
+                                <div class="addsavedpriorart-row top">
+                                    <input type="text" class="form-control addsavedpriorart-field" id="manual_saved_result" name="manual_saved_result" style="margin-top: 0.25em; margin-bottom: 0.25em;" placeholder="Add saved prior art manually" >
+                                        <div class="help-block with-errors" style="text-align:left;"></div>
+                                </div>
+                                 <div class="hex-button-small nlp-orange" id="addsavedpriorart_saved" style="margin-top:.25em;margin-bottom:.25em;min-width:40px;">
+                                    <button type="button" class="btn btn-primary">ADD</button>
+                                </div>
+                            </div>   
+                        
+                            <!-- <div class="hex-button-small nlp-bluegray">
+                                <button type="button" class="btn btn-primary" style="min-width:125px;" id="nlpapp-email-analysis" data-toggle="tooltip" data-placement="top" title="" data-original-title="Email these results as a Word file.">Email</button>
+                            </div> -->
+                            <div class="hex-button-small nlp-bluegray disabled" id="nlpapp-download-analysis-saved" style="margin:.25em 30px .25em 0;min-width:30px;">
+                                <button type="button" class="btn btn-primary btn-icon" data-toggle="tooltip" data-placement="top" title="" data-original-title="Download these results as a Word file." disabled="disabled"><div class="icon nlpapp-download"></div></button>
+                            </div>
+                            <!-- <div class="form-feedback" style="display: none;text-align: right;padding:.5em 0 0 0;margin:0 30px 0 0;max-width: 100%;"></div> -->
+                            <style>
+                                .tooltip { z-index:1039 !important; }
+                            </style>
+                        </div>
+                    </form>
+                    <form id="nlpapp-download-analysis-hidden" action="/downloadresults" style="margin-top:0;" method="get"></form>
+                    <form name="nlpapp_step_three_form" id="nlpapp_step_three_form" action="" style="margin-top:15px">
+                        <table class="table" id="prior-art-saved-results-table">
+                            <thead>
+                                <tr>
+                                    <th colspan="3">Saved Results</th>
+                                    <th style="text-align:right !important;">CPC</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                        <!--<br>-->
+                        <div class="form-feedback"></div>
+                        <div class="button-row right">
+                            <div class="hex-button-helper">
+                                <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Predicts the likelihood of a USPTO section 101 rejection.">?</button>
+                            </div>
+                            <div class="hex-button nlp-orange">
+                                <button type="submit" class="btn btn-primary navigate_step4">Predict patentability</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <br><br>
+        </div>
+    </div>
+
+    <!-- step 4 -->
+    <div class="container-content" id="container-step4" style="min-height:500px;display:none;">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="hidden-xs"><br><br></div>
+
+                    <div class="legal-disclaimer">
+                        THIS IS NOT LEGAL ADVICE : This assessment is entirely computer-generated, using Artificial Intelligence. It has not been considered for relevance by a human. As such, Legalicity provides no warranty and makes no claims regarding the accuracy, completeness, reliability, and overall quality of the content. This assessment does not constitute legal or professional advice, and Legalicity shall not be liable for any loss or damage arising out of, or in connection with, any reliance on the contents of this assessment.
+                    </div>
+                    <br>
+
+                    <div class="subtitle">&sect; 101 : Subject Matter Eligibility</div>
+                    <hr>
+                    <div class="analysis_holder"></div>
+
+                    <!--<br>
+                    <form style="margin-top:0;">
+                        <div class="button row text-xs-center" id="nlpapp-analysis-save">
+                            <b>Save Prior Art Results as Word File</b><br><br>
+                            <div class="hex-button-small nlp-orange">
+                                <button type="button" class="btn btn-primary" style="min-width:125px;" id="nlpapp-email-analysis">Email</button>
+                            </div>
+                            <div class="hex-button-small nlp-orange">
+                                <button type="button" class="btn btn-primary" style="min-width:125px;" id="nlpapp-download-analysis">Download</button>
+                            </div>
+                            <div class="form-feedback"></div>
+                        </div>
+                    </form>
+                    <form id="nlpapp-download-analysis-hidden" action="/downloadresults" style="margin-top:0;" method="get"></form>
+                    -->
+                    <br>
+                </div>
+            </div>
+            <br><br>
+        </div>
+    </div>
+</div>
+<div class="container-body profile" id="body-profile" style="display:none;">
+    <!-- non-mobile nav -->
+    <div id="container-nav" class="container container-nav-large svg">
+         <div class="row" id="row-nav">
+            <ul class="nav nav-tabs">
+                <li role="presentation" class="nav-step active" id="nav-profile_edit_profile" data-title="Edit Profile"><a href="profile_edit_profile" data-navigo>Personal Information</a></li>
+                <li role="presentation" class="nav-step" id="nav-profile_plan_info" data-title="Plan Information"><a href="profile_plan_info" data-navigo>Plan Information</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- mobile nav -->
+    <div id="container-nav" class="container container-nav-mobile">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header row">
+                        <div class="col-xs-12">
+                            <div class="mobile-title">Plan Information</div>
+                            <div class="mobile-toggle-holder" class="text-xs-right">
+                                <div class="hex-button-small nlp-orange" style="min-width:1px;">
+                                    <button type="button" class="navbar-toggle collapsed btn" data-toggle="collapse" data-target="#navbar-profile" aria-expanded="false" aria-controls="navbar"><div class="icon nlpapp-icon-hamburger"></div></button>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                <div id="navbar-profile" class="row navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="nav-step" id="mobilenav-profile_edit_profile" data-title="Edit Profile"><a href="profile_edit_profile" data-navigo>Personal Information</a></li>
+                        <li class="nav-step" id="mobilenav-profile_plan_info" data-title="Plan Information"><a href="profile_plan_info" data-navigo>Plan Information</a></li>
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div><!--/.container-fluid -->
+        </nav>
+    </div>
+
+
+    <!-- profile / plan information -->
+    <div class="container-content" id="container-profile_plan_info" style="min-height:500px;display:block;">
+        <div class="container">
+            <div class="row">
+
+            </div>
+            <br><br>
+        </div>
+    </div>
+
+
+    <!-- profile / edit profile -->
+    <div class="container-content" id="container-profile_edit_profile" style="min-height:500px;display:none;">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                    <br><br>
+                    <div class="subtitle">Edit Profile</div>
+                    <hr>
+                    <form id="nlpapp_edit_profile" class="form-horizontal" style="margin:0 auto;">
+                        <div class="form-group flex-row middle" style="margin-bottom:0;">
+                            <div class="col-xs-4 col-sm-5 text-sm-right"><label for="profile_email" class="control-label">Email</label></div>
+                            <div class="col-xs-8 col-sm-7 col-field">
+                              <input type="text" class="form-control" id="profile_email" name="profile_email" value="inventor99@acmeindustries.com" autocomplete="off" disabled>
+                            </div>
+                        </div>
+                        <div class="form-group flex-row middle required" style="margin-bottom:0;">
+                            <div class="col-xs-4 col-sm-5 text-sm-right"><label for="inputEmail3" class="control-label">First Name</label></div>
+                            <div class="col-xs-8 col-sm-7 col-field">
+                              <input type="text" class="form-control" id="profile_first_name" name="profile_first_name" value="">
+                              <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                        <div class="form-group flex-row middle required" style="margin-bottom:0;">
+                            <div class="col-xs-4 col-sm-5 text-sm-right"><label for="inputEmail3" class="control-label">Last Name</label></div>
+                            <div class="col-xs-8 col-sm-7 col-field">
+                              <input type="text" class="form-control" id="profile_last_name" name="profile_last_name" value="">
+                              <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                        <div class="form-group flex-row middle" style="margin-bottom:0;">
+                            <div class="col-xs-4 col-sm-5 text-sm-right"><label for="profile_organization" class="control-label">Organization</label></div>
+                            <div class="col-xs-8 col-sm-7 col-field">
+                              <input type="text" class="form-control" id="profile_organization" name="profile_organization" value="ACME Industries" disabled>
+                            </div>
+                        </div>
+                        <div class="form-group flex-row middle" style="margin-bottom:0;">
+                            <div class="col-xs-4 col-sm-5 text-sm-right"><label for="profile_role" class="control-label">Role</label></div>
+                            <div class="col-xs-8 col-sm-7 col-field">
+                              <input type="text" class="form-control" id="profile_role" name="profile_role" value="Lead Engineer - Hazardous Products">
+                            <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                        <div class="form-group flex-row middle" style="margin-bottom:0;">
+                            <div class="col-xs-4 col-sm-5 text-sm-right"><label for="profile_country" name="profile_country" class="control-label">Country</label></div>
+                            <div class="col-xs-8 col-sm-7 col-field">
+                              <select class="form-control" id="profile_country">
+                                <option value="">Please select one</option>
+                                <option value="US">United States</option>
+                                <option value="CA">Canada</option>
+                                <option disabled="disabled">------------</option>
+                                <option value="AF">Afghanistan</option>
+                                <option value="AL">Albania</option>
+                                <option value="DZ">Algeria</option>
+                                <option value="AS">American Samoa</option>
+                                <option value="AD">Andorra</option>
+                                <option value="AO">Angola</option>
+                                <option value="AI">Anguilla</option>
+                                <option value="AQ">Antarctica</option>
+                                <option value="AG">Antigua and Barbuda</option>
+                                <option value="AR">Argentina</option>
+                                <option value="AM">Armenia</option>
+                                <option value="AW">Aruba</option>
+                                <option value="AU">Australia</option>
+                                <option value="AT">Austria</option>
+                                <option value="AZ">Azerbaijan</option>
+                                <option value="BH">Bahrain</option>
+                                <option value="BD">Bangladesh</option>
+                                <option value="BB">Barbados</option>
+                                <option value="BY">Belarus</option>
+                                <option value="BE">Belgium</option>
+                                <option value="BZ">Belize</option>
+                                <option value="BJ">Benin</option>
+                                <option value="BM">Bermuda</option>
+                                <option value="BT">Bhutan</option>
+                                <option value="BO">Bolivia</option>
+                                <option value="BA">Bosnia and Herzegovina</option>
+                                <option value="BW">Botswana</option>
+                                <option value="BV">Bouvet Island</option>
+                                <option value="BR">Brazil</option>
+                                <option value="IO">British Indian Ocean Territory</option>
+                                <option value="VG">British Virgin Islands</option>
+                                <option value="BN">Brunei</option>
+                                <option value="BG">Bulgaria</option>
+                                <option value="BF">Burkina Faso</option>
+                                <option value="BI">Burundi</option>
+                                <option value="CI">Cóte d"Ivoire</option>
+                                <option value="KH">Cambodia</option>
+                                <option value="CM">Cameroon</option>
+                                <option value="CV">Cape Verde</option>
+                                <option value="KY">Cayman Islands</option>
+                                <option value="CF">Central African Republic</option>
+                                <option value="TD">Chad</option>
+                                <option value="CL">Chile</option>
+                                <option value="CN">China</option>
+                                <option value="CX">Christmas Island</option>
+                                <option value="CC">Cocos (Keeling) Islands</option>
+                                <option value="CO">Colombia</option>
+                                <option value="KM">Comoros</option>
+                                <option value="CG">Congo</option>
+                                <option value="CK">Cook Islands</option>
+                                <option value="CR">Costa Rica</option>
+                                <option value="HR">Croatia</option>
+                                <option value="CU">Cuba</option>
+                                <option value="CY">Cyprus</option>
+                                <option value="CZ">Czech Republic</option>
+                                <option value="CD">Democratic Republic of the Congo</option>
+                                <option value="DK">Denmark</option>
+                                <option value="DJ">Djibouti</option>
+                                <option value="DM">Dominica</option>
+                                <option value="DO">Dominican Republic</option>
+                                <option value="TP">East Timor</option>
+                                <option value="EC">Ecuador</option>
+                                <option value="EG">Egypt</option>
+                                <option value="SV">El Salvador</option>
+                                <option value="GQ">Equatorial Guinea</option>
+                                <option value="ER">Eritrea</option>
+                                <option value="EE">Estonia</option>
+                                <option value="ET">Ethiopia</option>
+                                <option value="FO">Faeroe Islands</option>
+                                <option value="FK">Falkland Islands</option>
+                                <option value="FJ">Fiji</option>
+                                <option value="FI">Finland</option>
+                                <option value="MK">Former Yugoslav Republic of Macedonia</option>
+                                <option value="FR">France</option>
+                                <option value="FX">France, Metropolitan</option>
+                                <option value="GF">French Guiana</option>
+                                <option value="PF">French Polynesia</option>
+                                <option value="TF">French Southern Territories</option>
+                                <option value="GA">Gabon</option>
+                                <option value="GE">Georgia</option>
+                                <option value="DE">Germany</option>
+                                <option value="GH">Ghana</option>
+                                <option value="GI">Gibraltar</option>
+                                <option value="GR">Greece</option>
+                                <option value="GL">Greenland</option>
+                                <option value="GD">Grenada</option>
+                                <option value="GP">Guadeloupe</option>
+                                <option value="GU">Guam</option>
+                                <option value="GT">Guatemala</option>
+                                <option value="GN">Guinea</option>
+                                <option value="GW">Guinea-Bissau</option>
+                                <option value="GY">Guyana</option>
+                                <option value="HT">Haiti</option>
+                                <option value="HM">Heard and Mc Donald Islands</option>
+                                <option value="HN">Honduras</option>
+                                <option value="HK">Hong Kong</option>
+                                <option value="HU">Hungary</option>
+                                <option value="IS">Iceland</option>
+                                <option value="IN">India</option>
+                                <option value="ID">Indonesia</option>
+                                <option value="IR">Iran</option>
+                                <option value="IQ">Iraq</option>
+                                <option value="IE">Ireland</option>
+                                <option value="IL">Israel</option>
+                                <option value="IT">Italy</option>
+                                <option value="JM">Jamaica</option>
+                                <option value="JP">Japan</option>
+                                <option value="JO">Jordan</option>
+                                <option value="KZ">Kazakhstan</option>
+                                <option value="KE">Kenya</option>
+                                <option value="KI">Kiribati</option>
+                                <option value="KW">Kuwait</option>
+                                <option value="KG">Kyrgyzstan</option>
+                                <option value="LA">Laos</option>
+                                <option value="LV">Latvia</option>
+                                <option value="LB">Lebanon</option>
+                                <option value="LS">Lesotho</option>
+                                <option value="LR">Liberia</option>
+                                <option value="LY">Libya</option>
+                                <option value="LI">Liechtenstein</option>
+                                <option value="LT">Lithuania</option>
+                                <option value="LU">Luxembourg</option>
+                                <option value="MO">Macau</option>
+                                <option value="MG">Madagascar</option>
+                                <option value="MW">Malawi</option>
+                                <option value="MY">Malaysia</option>
+                                <option value="MV">Maldives</option>
+                                <option value="ML">Mali</option>
+                                <option value="MT">Malta</option>
+                                <option value="MH">Marshall Islands</option>
+                                <option value="MQ">Martinique</option>
+                                <option value="MR">Mauritania</option>
+                                <option value="MU">Mauritius</option>
+                                <option value="MT">Mayotte</option>
+                                <option value="MX">Mexico</option>
+                                <option value="FM">Micronesia</option>
+                                <option value="MD">Moldova</option>
+                                <option value="MC">Monaco</option>
+                                <option value="MN">Mongolia</option>
+                                <option value="ME">Montenegro</option>
+                                <option value="MS">Montserrat</option>
+                                <option value="MA">Morocco</option>
+                                <option value="MZ">Mozambique</option>
+                                <option value="MM">Myanmar</option>
+                                <option value="NA">Namibia</option>
+                                <option value="NR">Nauru</option>
+                                <option value="NP">Nepal</option>
+                                <option value="NL">Netherlands</option>
+                                <option value="AN">Netherlands Antilles</option>
+                                <option value="NC">New Caledonia</option>
+                                <option value="NZ">New Zealand</option>
+                                <option value="NI">Nicaragua</option>
+                                <option value="NE">Niger</option>
+                                <option value="NG">Nigeria</option>
+                                <option value="NU">Niue</option>
+                                <option value="NF">Norfolk Island</option>
+                                <option value="KP">North Korea</option>
+                                <option value="MP">Northern Marianas</option>
+                                <option value="NO">Norway</option>
+                                <option value="OM">Oman</option>
+                                <option value="PK">Pakistan</option>
+                                <option value="PW">Palau</option>
+                                <option value="PA">Panama</option>
+                                <option value="PG">Papua New Guinea</option>
+                                <option value="PY">Paraguay</option>
+                                <option value="PE">Peru</option>
+                                <option value="PH">Philippines</option>
+                                <option value="PN">Pitcairn Islands</option>
+                                <option value="PL">Poland</option>
+                                <option value="PT">Portugal</option>
+                                <option value="PR">Puerto Rico</option>
+                                <option value="QA">Qatar</option>
+                                <option value="RE">Reunion</option>
+                                <option value="RO">Romania</option>
+                                <option value="RU">Russia</option>
+                                <option value="RW">Rwanda</option>
+                                <option value="ST">São Tomé and Príncipe</option>
+                                <option value="SH">Saint Helena</option>
+                                <option value="PM">St. Pierre and Miquelon</option>
+                                <option value="KN">Saint Kitts and Nevis</option>
+                                <option value="LC">Saint Lucia</option>
+                                <option value="VC">Saint Vincent and the Grenadines</option>
+                                <option value="WS">Samoa</option>
+                                <option value="SM">San Marino</option>
+                                <option value="SA">Saudi Arabia</option>
+                                <option value="SN">Senegal</option>
+                                <option value="RS">Serbia</option>
+                                <option value="SC">Seychelles</option>
+                                <option value="SL">Sierra Leone</option>
+                                <option value="SG">Singapore</option>
+                                <option value="SK">Slovakia</option>
+                                <option value="SI">Slovenia</option>
+                                <option value="SB">Solomon Islands</option>
+                                <option value="SO">Somalia</option>
+                                <option value="ZA">South Africa</option>
+                                <option value="GS">South Georgia and the South Sandwich Islands</option>
+                                <option value="KR">South Korea</option>
+                                <option value="ES">Spain</option>
+                                <option value="LK">Sri Lanka</option>
+                                <option value="SD">Sudan</option>
+                                <option value="SR">Suriname</option>
+                                <option value="SJ">Svalbard and Jan Mayen Islands</option>
+                                <option value="SZ">Swaziland</option>
+                                <option value="SE">Sweden</option>
+                                <option value="CH">Switzerland</option>
+                                <option value="SY">Syria</option>
+                                <option value="TW">Taiwan</option>
+                                <option value="TJ">Tajikistan</option>
+                                <option value="TZ">Tanzania</option>
+                                <option value="TH">Thailand</option>
+                                <option value="BS">The Bahamas</option>
+                                <option value="GM">The Gambia</option>
+                                <option value="TG">Togo</option>
+                                <option value="TK">Tokelau</option>
+                                <option value="TO">Tonga</option>
+                                <option value="TT">Trinidad and Tobago</option>
+                                <option value="TN">Tunisia</option>
+                                <option value="TR">Turkey</option>
+                                <option value="TM">Turkmenistan</option>
+                                <option value="TC">Turks and Caicos Islands</option>
+                                <option value="TV">Tuvalu</option>
+                                <option value="VI">US Virgin Islands</option>
+                                <option value="UG">Uganda</option>
+                                <option value="UA">Ukraine</option>
+                                <option value="AE">United Arab Emirates</option>
+                                <option value="GB">United Kingdom</option>
+                                <option value="UM">United States Minor Outlying Islands</option>
+                                <option value="UY">Uruguay</option>
+                                <option value="UZ">Uzbekistan</option>
+                                <option value="VU">Vanuatu</option>
+                                <option value="VA">Vatican City</option>
+                                <option value="VE">Venezuela</option>
+                                <option value="VN">Vietnam</option>
+                                <option value="WF">Wallis and Futuna Islands</option>
+                                <option value="EH">Western Sahara</option>
+                                <option value="YE">Yemen</option>
+                                <option value="ZM">Zambia</option>
+                                <option value="ZW">Zimbabwe</option>
+                            </select>
+                            </div>
+                        </div>
+                        <div class="form-group flex-row middle" style="margin-bottom:0;display:none;">
+                            <div class="col-xs-4 col-sm-5 text-sm-right"><label for="profile_state" name="profile_state" class="control-label">State / Province</label></div>
+                            <div class="col-xs-8 col-sm-7 col-field">
+                                <select class="form-control" id="profile_state">
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-feedback" class="text-xs-right"></div>
+                        <div class="form-group text-xs-right" style="margin-top:2em;margin-right:0;">
+                            <div class="hex-button nlp-orange">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                    <script>
+                    $( document ).ready(function() {
+
+                        var us_states =[{"code":"","name":"Please select one"},
+                            {"code":"AL","name":"Alabama"},
+                            {"code":"AK","name":"Alaska"},
+                            {"code":"AS","name":"American Samoa"},
+                            {"code":"AZ","name":"Arizona"},
+                            {"code":"AR","name":"Arkansas"},
+                            {"code":"CA","name":"California"},
+                            {"code":"CO","name":"Colorado"},
+                            {"code":"CT","name":"Connecticut"},
+                            {"code":"DE","name":"Delaware"},
+                            {"code":"DC","name":"District of Columbia"},
+                            {"code":"FM","name":"Federated States Of Micronesia"},
+                            {"code":"FL","name":"Florida"},
+                            {"code":"GA","name":"Georgia"},
+                            {"code":"GU","name":"Guam"},
+                            {"code":"HI","name":"Hawaii"},
+                            {"code":"ID","name":"Idaho"},
+                            {"code":"IL","name":"Illinois"},
+                            {"code":"IN","name":"Indiana"},
+                            {"code":"IA","name":"Iowa"},
+                            {"code":"KS","name":"Kansas"},
+                            {"code":"KY","name":"Kentucky"},
+                            {"code":"LA","name":"Louisiana"},
+                            {"code":"ME","name":"Maine"},
+                            {"code":"MH","name":"Marshall Islands"},
+                            {"code":"MD","name":"Maryland"},
+                            {"code":"MA","name":"Massachusetts"},
+                            {"code":"MI","name":"Michigan"},
+                            {"code":"MN","name":"Minnesota"},
+                            {"code":"MS","name":"Mississippi"},
+                            {"code":"MO","name":"Missouri"},
+                            {"code":"MT","name":"Montana"},
+                            {"code":"NE","name":"Nebraska"},
+                            {"code":"NV","name":"Nevada"},
+                            {"code":"NH","name":"New Hampshire"},
+                            {"code":"NJ","name":"New Jersey"},
+                            {"code":"NM","name":"New Mexico"},
+                            {"code":"NY","name":"New York"},
+                            {"code":"NC","name":"North Carolina"},
+                            {"code":"ND","name":"North Dakota"},
+                            {"code":"MP","name":"Northern Mariana Islands"},
+                            {"code":"OH","name":"Ohio"},
+                            {"code":"OK","name":"Oklahoma"},
+                            {"code":"OR","name":"Oregon"},
+                            {"code":"PW","name":"Palau"},
+                            {"code":"PA","name":"Pennsylvania"},
+                            {"code":"PR","name":"Puerto Rico"},
+                            {"code":"RI","name":"Rhode Island"},
+                            {"code":"SC","name":"South Carolina"},
+                            {"code":"SD","name":"South Dakota"},
+                            {"code":"TN","name":"Tennessee"},
+                            {"code":"TX","name":"Texas"},
+                            {"code":"UT","name":"Utah"},
+                            {"code":"VT","name":"Vermont"},
+                            {"code":"VI","name":"Virgin Islands"},
+                            {"code":"VA","name":"Virginia"},
+                            {"code":"WA","name":"Washington"},
+                            {"code":"WV","name":"West Virginia"},
+                            {"code":"WI","name":"Wisconsin"},
+                            {"code":"WY","name":"Wyoming"}];
+
+                        var ca_provinces = [{"code":"","name":"Please select one"},
+                            {"code":"AB","name":"Alberta"},
+                            {"code":"BC","name":"British Columbia"},
+                            {"code":"MB","name":"Manitoba"},
+                            {"code":"NB","name":"New Brunswick"},
+                            {"code":"NL","name":"Newfoundland and Labrador"},
+                            {"code":"NT","name":"Northwest Territories"},
+                            {"code":"NU","name":"Nunavut"},
+                            {"code":"NS","name":"Nova Scotia"},
+                            {"code":"ON","name":"Ontario"},
+                            {"code":"PE","name":"Prince Edward Island"},
+                            {"code":"QC","name":"Québec"},
+                            {"code":"SK","name":"Saskatchewan"},
+                            {"code":"YT","name":"Yukon Territory"}];
+
+                        $("select[id=profile_country]").change(function () {
+                            if ($(this).val() == "CA"){
+                                $("#profile_state").find("option").remove().end();
+                                var listItems ="";
+                                for (var i = 0; i < ca_provinces.length; i++) {
+                                    listItems += "<option value='" + ca_provinces[i].code + "'>" + ca_provinces[i].name + "</option>";
+                                }
+                                $("#profile_state").html(listItems);
+                                $("#profile_state").parent().parent().show();
+                            } else if ( $(this).val() == "US") {
+                                $("#profile_state").find("option").remove().end();
+                                var listItems ="";
+                                for (var i = 0; i < us_states.length; i++) {
+                                    listItems += "<option value='" + us_states[i].code + "'>" + us_states[i].name + "</option>";
+                                }
+                                $("#profile_state").html(listItems);
+                                $("#profile_state").parent().parent().show();
+                            } else {
+                                $("#profile_state").parent().parent().hide();
+                            }
+                        });
+
+                    });
+                    </script>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <br><br>
+
+                    <div class="subtitle">Change Password</div>
+                    <hr>
+                    <form id="nlpapp_change_password" name="nlpapp_change_password" class="form-horizontal" style="margin:0 auto;">
+                        <div class="form-group flex-row middle required" style="margin-bottom:0;">
+                            <div class="col-xs-4 col-sm-5 text-sm-right"><label for="profile_current_password" class="control-label">Current Password</label></div>
+                            <div class="col-xs-8 col-sm-7 col-field">
+                              <input type="password" class="form-control" id="profile_current_password" name="profile_current_password">
+                              <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                        <div class="form-group flex-row middle required" style="margin-bottom:0;">
+                            <div class="col-xs-4 col-sm-5 text-sm-right"><label for="inputEmail3" class="control-label">New Password</label></div>
+                            <div class="col-xs-8 col-sm-7 col-field">
+                              <input type="password" class="form-control" id="profile_new_password" name="profile_new_password" autocomplete="off" >
+                              <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                        <div class="form-group flex-row middle required" style="margin-bottom:0;">
+                            <div class="col-xs-4 col-sm-5 text-sm-right"><label for="inputEmail3" class="control-label">Confirm New Password</label></div>
+                            <div class="col-xs-8 col-sm-7 col-field">
+                              <input type="password" class="form-control" id="profile_confirmnew_password" name="profile_confirmnew_password" autocomplete="off">
+                              <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                        <div class="form-feedback"></div>
+                        <div class="form-group text-xs-right" style="margin-top:2em;margin-right:0;">
+                            <div class="hex-button nlp-orange">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <br><br>
+        </div>
+    </div>
+</div>
+
+
+<!-- footer - universal across application -->
+<div class="container-footer" style="display:none;">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+            © 2018 Legalicity Ltd. All rights reserved.
+            Legalicity is a technology company and therefore none of the content on this website constitutes legal or other professional advice or an opinion of any kind.
+            Accessing or using this website does not create a lawyer-client relationship. Users of this website are advised to seek specific legal advice by contacting a lawyer or a patent professional.
+            </div>
+        </div>
+    </div>
+</div>
+<!-- modals, loaders, errors -->
+<!-- loader -->
+<div class="modal " tabindex="-1" role="dialog" id="nlpapp-loader" aria-labelledby="Loading - Please Wait" data-backdrop="static" data-keyboard="false" style="z-index:1075;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="nlpapp-loader-svg">
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 156 130" style="enable-background:new 0 0 156 130;" xml:space="preserve">
+                <style type="text/css">
+                    .st1{fill:none;stroke:#4a5c68;stroke-width:6.6277;stroke-miterlimit:10;}
+                    .st2{fill:url(#SVGID_1_);}
+                    .st2a{fill:url(#SVGID_2_);}
+                    .st3{fill:#FFFFFF;}
+                </style>
+                <polygon class="st1" points="70.9,52.7 42.3,52.7 28,77.3 42.3,102 70.9,102 85.1,77.3 "/>
+                <polygon class="st1" points="113.7,28 85.1,28 70.9,52.7 85.1,77.3 113.7,77.3 128,52.7 "/>
+                <g>
+                    <radialGradient id="SVGID_1_" cx="128" cy="52.6667" r="26.5579" gradientUnits="userSpaceOnUse">
+                        <stop  offset="0" style="stop-color:#F8971E"/>
+                        <stop  offset="1" style="stop-color:#F8971E;stop-opacity:0"/>
+                    </radialGradient>
+                    <radialGradient id="SVGID_2_" cx="128" cy="52.6667" r="15" gradientUnits="userSpaceOnUse">
+                        <stop  offset="0" style="stop-color:#FFFFFF"/>
+                        <stop  offset="1" style="stop-color:#FFFFFF;stop-opacity:0"/>
+                    </radialGradient>
+                    <g id="loader-hexhead">
+                        <circle class="st2" cx="128" cy="52.7" r="26.6"/>
+                        <polygon class="st3" points="133.2,43.7 122.8,43.7 117.5,52.7 122.8,61.7 133.2,61.7 138.5,52.7  "/>
+                    </g>
+                </g>
+                </svg>
+            </div>
+            <div class="nlpapp-loader-message" id="">PROCESSING...</div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+<!-- error modal -->
+<div class="modal " tabindex="-1" role="dialog" id="nlpapp-errormsg" aria-labelledby="We have encountered an error" style="z-index:1100;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="top: -50px;">
+            <div class="nlpapp-error-svg">
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 180 156" style="enable-background:new 0 0 180 156;" xml:space="preserve">
+                <filter id="dropshadow_cap" x="0" y="0" height="110%" width="110%">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="2" />
+                </filter>
+                <style type="text/css">
+                    .error_st{fill:#f7961d;opacity:0.75;}
+                    .error_st0{fill:#4A5C68;}
+                    .error_st1{fill:#FFFFFF;}
+                </style>
+                <polygon class="error_st" style="filter:url(#dropshadow_cap)" points="73.3,107 56.5,78 73.3,49 106.7,49 123.5,78 106.7,107 "/>
+                <polygon class="error_st0" points="105,52 90,52 75,52 67.5,65 60,78 67.5,91 75,104 90,104 105,104 112.5,91 120,78 112.5,65 "/>
+                <g>
+                    <path class="error_st1" d="M90,89.2c1.7,0,3.1,1.4,3.1,3.3c0,1.9-1.4,3.2-3.1,3.2c-1.7,0-3.1-1.4-3.1-3.2C86.9,90.5,88.3,89.2,90,89.2z
+                         M88,65.2l-0.1-4.9h4.3l-0.1,4.9l-0.6,19.7h-3L88,65.2z"/>
+                </g>
+                </svg>
+            </div>
+            <div class="nlpapp-error-message"><br>SOMETHING WENT WRONG!<br>PLEASE TRY AGAIN.</div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+<!-- cap reached modal -->
+<div class="modal " tabindex="-1" role="dialog" id="nlpapp-capreached" aria-labelledby="You have reached the monthly usage cap of your organization. Please contact an administrator at your organization to increase this cap." style="z-index:1100;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="top: -50px;">
+            <div class="nlpapp-error-svg">
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 180 156" style="enable-background:new 0 0 180 156;" xml:space="preserve">
+                <filter id="dropshadow" x="0" y="0" height="110%" width="110%">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="2" />
+                </filter>
+                <style type="text/css">
+                    .error_st{fill:#f7961d;opacity:0.75;}
+                    .error_st0{fill:#4A5C68;}
+                    .error_st1{fill:#FFFFFF;}
+                </style>
+                <polygon class="error_st" style="filter:url(#dropshadow)" points="73.3,107 56.5,78 73.3,49 106.7,49 123.5,78 106.7,107 "/>
+                <polygon class="error_st0" points="105,52 90,52 75,52 67.5,65 60,78 67.5,91 75,104 90,104 105,104 112.5,91 120,78 112.5,65 "/>
+                <g>
+                    <path class="error_st1" d="M90,89.2c1.7,0,3.1,1.4,3.1,3.3c0,1.9-1.4,3.2-3.1,3.2c-1.7,0-3.1-1.4-3.1-3.2C86.9,90.5,88.3,89.2,90,89.2z
+                         M88,65.2l-0.1-4.9h4.3l-0.1,4.9l-0.6,19.7h-3L88,65.2z"/>
+                </g>
+                </svg>
+            </div>
+            <div class="nlpapp-error-message"></div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+<!-- sign up modal -->
+<div class="modal " tabindex="-1" role="dialog" id="nlpapp_signup_modal" aria-labelledby="NLPatent Sign Up Form">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Request a Free Trial of NLPatent</h4>
+            </div>
+            <div class="modal-body">
+                <!-- <p> Do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. </p> -->
+                <form id="nlpapp_signup" class="form-horizontal">
+                    <div class="form-group flex-row middle required">
+                        <label for="signup_name" class="col-xs-3 col-sm-4 control-label text-sm-right">Your Name</label>
+                        <div class="col-xs-9 col-sm-8 col-field">
+                            <input type="text" class="form-control" id="signup_name" name="signup_name" placeholder="" autocomplete="off">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                    <div class="form-group flex-row middle required">
+                        <label for="signup_email" class="col-xs-3 col-sm-4 control-label text-sm-right">Your Email</label>
+                        <div class="col-xs-9 col-sm-8 col-field">
+                            <input type="text" class="form-control" id="signup_email" name="signup_email" placeholder="" autocomplete="off">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                    <div class="form-group flex-row middle">
+                        <label for="signup_referral" class="col-xs-3 col-sm-4 control-label text-sm-right">How did you hear about NLPatent?</label>
+                        <div class="col-xs-9 col-sm-8 col-field">
+                            <select class="form-control" id="signup_referral" name="signup_referral">
+                                <option value="">Please select one</option>
+                                <option value="search engine">Search engine</option>
+                                <option value="facebook">Facebook</option>
+                                <option value="twitter">Twitter</option>
+                                <option value="linkedin">LinkedIn</option>
+                                <option value="friend">Friend / Colleague</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group flex-row middle" style="display:none;">
+                        <label for="signup_referral_other" class="col-xs-3 col-sm-4 control-label text-sm-right">Other</label>
+                        <div class="col-xs-9 col-sm-8 col-field">
+                            <input type="text" class="form-control" id="signup_referral_other" name="signup_referral_other" placeholder="Please let us know" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="form-group text-xs-right">
+                        <br>
+                        <div class="hex-button nlp-bluegray">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close">Cancel</button>
+                        </div>
+                        <div class="hex-button nlp-orange">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                    <br><br>
+                </form>
+                <script>
+                $( document ).ready(function() {
+                    $("select[id=signup_referral]").change(function () {
+                        if ($(this).val() == "other") {
+                            $("#signup_referral_other").parent().parent().show();
+                        } else {
+                            $("#signup_referral_other").parent().parent().hide();
+                        }
+                    });
+                });
+                </script>
+            </div>
+            <div class="form-feedback"></div>
+        </div>
+    </div>
+</div>
+<!-- forgot password modal -->
+<div class="modal " tabindex="-1" role="dialog" id="nlpapp_forgotpassword_modal" aria-labelledby="Forgot your NLPatent password?">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header flex-row middle">
+                <div style="width:calc( 100% - 70px);"><h4 class="modal-title">Forgot your NLPatent password?</h4></div>
+                <div class="hex-button-small icon nlp-bluegray text-xs-right" style="min-width:5px;width:30px;">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close" style="padding: 10px 3px 7px 3px;font-size: .7em;line-height: 1em;"><div class="icon nlpapp-icon-delete"></div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <!-- <p> Do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. </p> -->
+                <form id="nlpapp_forgotpassword" class="form-horizontal">
+                    <div class="form-group flex-row top required">
+                        <label for="forgotpassword_email" class="col-xs-3 col-sm-4 control-label text-sm-right" style="padding-top:16px;">Your Email</label>
+                        <div class="col-xs-9 col-sm-8 col-field">
+                            <input type="text" class="form-control" id="forgotpassword_email" placeholder="" autocomplete="off">
+                            <div class="form-feedback help-block with-errors" style="text-align:left;"></div>
+                        </div>
+                    </div>
+                    <div class="form-group text-xs-right">
+                        <br>
+                        <div class="hex-button nlp-bluegray">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close">Cancel</button>
+                        </div>
+                        <div class="hex-button nlp-orange">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                    <br><br>
+                </form>
+            </div>
+            <div class="form-feedback"></div>
+        </div>
+    </div>
+</div>
+<!-- utility modals -->
+<!-- edit project -->
+<div class="modal " tabindex="-1" role="dialog" id="nlpapp-modal-edit-project" aria-labelledby="Edit Project Window">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header flex-row middle row">
+                <div class="col-xs-8"><h4 class="modal-title">Editing Project "<span id="edit-project-name"></span>"</h4></div>
+                <div class="col-xs-4 text-xs-right">
+                    <div class="hex-button-small icon nlp-bluegray text-xs-right" style="min-width:5px;width:30px;float:right !important;">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close" style="padding: 10px 3px 7px 3px;font-size: .7em;line-height: 1em;"><div class="icon nlpapp-icon-delete"></div></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-body">
+                <!-- <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. </p> -->
+                <!-- edit project name -->
+                <div class="subtitle">Project Usage</div><hr>
+                Number of <u>searches</u> performed: <b><span id="nlpapp_monthly_searches"></span></b><br>
+                Number of <u>updates</u> performed: <b><span id="nlpapp_monthly_updates"></span></b><br>
+                <br>
+
+                <div class="subtitle">Rename Project</div><hr>
+                <form id="nlpapp_edit_project_name" class="form-horizontal">
+                    <div class="form-group flex-row middle required">
+                        <div class="col-xs-7 col-sm-8 col-field">
+                            <input type="hidden" name="old_name" id="old_name" value="">
+                            <input type="text" class="form-control" name="new_name" id="new_name" placeholder="Name" autocomplete="off" maxlength="140">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        <div class="col-xs-5 col-sm-4 col-field text-xs-right">
+                            <div class="hex-button-small nlp-orange">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group flex-row middle required">
+                        <div class="col-xs-12">
+                            <div class="form-feedback"></div>
+                        </div>
+                    </div>
+
+                </form>
+
+                <!-- edit project name -->
+                <br>
+                <div class="row flex-row middle">
+                    <div class="subtitle" style="margin-left:15px;">Change Project Security Settings</div>
+                    <div class="hex-button-helper" style="margin-left:1em;">
+                        <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Require password to unlock stored invention details in Step 1, Description.">?</button>
+                    </div>
+                </div>
+                <hr>
+                <!-- <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p> -->
+                <form id="nlpapp_edit_project_security" name="nlpapp_edit_project_security" class="form-horizontal">
+                    <div class="form-group flex-row middle">
+                        <div class="col-xs-7 col-sm-8 col-field">
+                            <input type="hidden" name="project_name" value="">
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="security" value="1">
+                                    Enable Security
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="security" value="0">
+                                    Disable Security
+                                </label>
+                            </div>
+
+                        </div>
+                        <div class="col-xs-5 col-sm-4 col-field text-xs-right">
+                            <div class="hex-button-small nlp-orange">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-group flex-row middle" id="nlpapp_edit_project_security_lockednotification" style="display:none;">
+                        <div class="col-xs-12 text-xs-center">
+                            <br><b>Please unlock the project in Description to change its security settings.</b>
+                        </div>
+                    </div>
+                    <div class="form-group flex-row middle required">
+                        <div class="col-xs-12">
+                            <div class="form-feedback"></div>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- delete project -->
+                <br>
+                <div class="subtitle">Delete Project</div><hr>
+                <!-- <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p> -->
+                <form id="nlpapp_delete_project" class="form-horizontal">
+                    <div class="form-group flex-row middle required">
+                        <div class="col-xs-12 col-sm-12 col-field text-xs-center">
+                            <input type="hidden" name="project_name" value="">
+                            <div class="hex-button nlp-orange">
+                                <button type="button" class="btn btn-primary" id="nlpapp_delete_project_button_initial">Delete Project</button>
+                            </div>
+                            <div class="hex-button nlp-bluegray">
+                                <button type="button" class="btn btn-primary" id="nlpapp_delete_project_button_cancel">Cancel</button>
+                            </div>
+                            <div class="hex-button nlp-orange">
+                                <button type="button" class="btn btn-primary" id="nlpapp_delete_project_button_confirm">Confirm Delete Project</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group flex-row middle required">
+                        <div class="col-xs-12 col-sm-12 col-field text-xs-center">
+                            <div class="form-feedback"></div>
+                        </div>
+                    </div>
+                </form>
+                <br><br>
+
+            </div>
+            <!-- <div class="button-row right">
+                <div class="hex-button nlp-bluegray">
+                    <button type="submit" class="btn btn-primary" onClick="javascript:$("#nnlpapp-modal-edit-project").modal("hide");">Cancel</button>
+                </div>
+            </div> -->
+        </div>
+    </div><!-- /.modal-dialog -->
+</div>
+<!-- delete prior art result -->
+<div class="modal " tabindex="-1" role="dialog" id="nlpapp-modal-delete-priorartresult" aria-labelledby="Delete Prior Art Result Confirmation">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Hide Prior Art "<span id="delete-priorartresult-id">AA0001111</span>" from your Results?</h4>
+            </div>
+            <div class="modal-body">
+                <!-- <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. </p> -->
+            </div>
+            <div class="button-row right">
+                <div class="hex-button nlp-bluegray">
+                    <button type="button" class="btn btn-primary" onClick="javascript:$('#nlpapp-modal-delete-priorartresult').modal('hide');">Cancel</button>
+                </div>
+                <div class="hex-button nlp-orange">
+                    <button type="button" class="btn btn-primary" id="delete-priorartresult-confirm" data-id="AA0001111">OK</button>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!-- delete prior art saved result -->
+<div class="modal" tabindex="-1" role="dialog" id="nlpapp-modal-delete-savedpriorart" aria-labelledby="Delete Save Prior Art Confirmation">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Remove Prior Art "<span id="delete-savedpriorart-id">AA0001111</span>" from your Saved Results?</h4>
+            </div>
+            <div class="modal-body">
+                <!-- <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. </p> -->
+            </div>
+            <div class="button-row right">
+                <div class="hex-button nlp-bluegray">
+                    <button type="button" class="btn btn-primary" onClick="javascript:$('#nlpapp-modal-delete-savedpriorart').modal('hide');">Cancel</button>
+                </div>
+                <div class="hex-button nlp-orange">
+                    <button type="button" class="btn btn-primary" id="delete-savedpriorart-confirm" data-id="AA0001111">OK</button>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<!-- prior art abstract result -->
+<div class="modal " tabindex="-1" role="dialog" id="nlpapp-modal-priorartabstract" aria-labelledby="Prior Art Abstract Preview">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header flex-row middle row" style="padding-bottom:0;">
+                <div class="col-xs-8"><h4 class="modal-title"></h4></h4></div>
+                <div class="col-xs-4 text-xs-right">
+                    <div class="hex-button-small icon nlp-bluegray text-xs-right" style="min-width:5px;width:30px;float:right !important;">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close" style="padding: 10px 3px 7px 3px;font-size: .7em;line-height: 1em;"><div class="icon nlpapp-icon-delete"></div></button>
+                    </div>
+                </div>
+            </div>
+            <hr style="margin-left:30px;margin-right:30px;">
+            <div class="modal-body">
+               
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+
+</body>
+<html>

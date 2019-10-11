@@ -1,0 +1,57 @@
+version: '3.7'
+
+services:
+  nginx:
+    image: nginx:mainline-alpine
+    deploy:
+      restart_policy:
+        condition: on-failure
+      replicas: 1
+      labels:
+        traefik.enable: 'true'
+        traefik.frontend.rule: 'Host:nlpatent.com,www.nlpatent.com'
+        traefik.port: '80'
+    configs:
+      - source: nginx.conf
+        target: /etc/nginx/nginx.conf
+    networks:
+      - external
+      - nlpatent
+
+  flask:
+    image: dkr.legali.city/legalicity/nlpatent
+    deploy:
+      restart_policy:
+        condition: on-failure
+      replicas: 1
+    environment:
+      EMAIL_PASSWORD: '${EMAIL_PASSWORD}'
+      MONGO_PASSWORD: '${MONGO_PASSWORD}'
+      JWT_SECRET_KEY: '${JWT_SECRET_KEY}'
+      JWT_CLIENT_KEY: '${JWT_CLIENT_KEY}'
+      JWT_PASSWORD_RESET_KEY: '${JWT_PASSWORD_RESET_KEY}'
+      STRIPE_SECRET_KEY: '${STRIPE_SECRET_KEY}'
+      STRIPE_PUBLISHABLE_KEY: '${STRIPE_PUBLISHABLE_KEY}'
+      STRIPE_TEST_SECRET_KEY: '${STRIPE_TEST_SECRET_KEY}'
+      STRIPE_TEST_PUBLISHABLE_KEY: '${STRIPE_TEST_PUBLISHABLE_KEY}'
+    networks:
+      - nlpatent
+      - database
+    volumes:
+      - /legalicity/nlpatent/billing:/legalicity/nlpatent/billing
+      - /legalicity/nlpatent/clients:/legalicity/nlpatent/clients
+      - /legalicity/nlpatent/data:/legalicity/nlpatent/data
+      - /legalicity/nlpatent/logs:/legalicity/nlpatent/logs
+      - /legalicity/nlpatent/public:/legalicity/nlpatent/static/public
+
+configs:
+  nginx.conf:
+    external: true
+    name: nlpatent_nginx.conf
+
+networks:
+  external:
+    external: true
+  database:
+    external: true
+  nlpatent:
